@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <title>로그인</title>
+  </head>
+  <body>
+    <div class="navi_wrapper">
+      <div class="logo fk">
+        <a href="http://localhost:3000">TogetherSports</a>
+      </div>
+      <div class="navi_wrap">
+        <div class="navi">소개</div>
+        <div class="navi"><a href="http://localhost:3000/health">운동</a></div>
+        <div class="navi">홍보</div>
+        <div class="navi">로그인</div>
+      </div>
+      <!--  navi_wrap  -->
+    </div>
+    <!--  navi_wrapper  -->
+
+    <form action="" method="post">
+      <div class="login_wrap">
+        <!-- <div class="login_img">
+          <img src="/images/login.jpg" alt="login" />
+        </div> -->
+        <div class="login">
+          <label for="login">아이디</label>
+          <input type="text" / id="login" name="id" placeholder="ID">
+          <label for="pwd">비밀번호</label>
+          <input type="text" / id="pwd" name="pwd" placeholder="Password">
+          <button type="button">로그인</button>
+        </div>
+      </div>
+      <!--  login_wrap  -->
+    </form>
+  </body>
+</html>

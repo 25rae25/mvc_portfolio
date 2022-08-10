@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/health.css" />
+    <title>농구 게시판</title>
+  </head>
+  <body>
+    <div class="navi_wrapper">
+      <div class="logo fk">
+        <a href="http://localhost:3000">TogetherSports</a>
+      </div>
+      <div class="navi_wrap">
+        <div class="navi">소개</div>
+        <div class="navi">운동</div>
+        <div class="navi">홍보</div>
+        <div class="navi">로그인</div>
+      </div>
+      <!--  navi_wrap  -->
+    </div>
+    <!--  navi_wrapper  -->
+
+    <div class="choice_wrap">
+      <div class="choice">
+        <a href="http://localhost:3000/health">축구</a>
+        <a href="http://localhost:3000/baseketball" class="active">농구</a>
+        <a href="#">테니스</a>
+        <a href="#">야구</a>
+      </div>
+    </div>
+    <!--  choice_wrap  -->
+
+    <div class="health_wrapper">
+      <div class="health_wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>이름</th>
+              <th>날짜</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < 20; i++){%>
+            <tr>
+              <td><%=number%></td>
+              <td><%=title%></td>
+              <td><%=name%></td>
+              <td><%=date%></td>
+            </tr>
+            <%}%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- health_wrapper -->
+
+    <footer class="footer">
+      <div class="footer_title">문의: whdudfo0124@google.com</div>
+    </footer>
+  </body>
+</html>

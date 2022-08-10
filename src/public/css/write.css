@@ -1,0 +1,31 @@
+/*********  navi_wrapper  *********/
+.navi_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 30px;
+}
+
+.logo {
+  font-size: 30px;
+}
+
+.navi_wrapper .navi_wrap {
+  display: flex;
+}
+
+.navi_wrap .navi {
+  margin: 0 30px;
+  cursor: pointer;
+  font-size: 1.125rem;
+}
+
+.navi:after {
+  display: block;
+  content: '';
+  border-bottom: solid 3px #000;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+.navi:hover:after {
+  transform: scaleX(1);
+}
