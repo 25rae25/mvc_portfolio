@@ -12,23 +12,20 @@ export class Health {
   id: string;
 
   @Column()
-  data: string;
+  number: number;
 
-  // @Column()
-  // number: number;
+  @Column()
+  title: string;
 
-  // @Column()
-  // title: string;
+  @Column()
+  name: string;
 
-  // @Column()
-  // name: string;
+  @Column()
+  content: string;
 
-  // @Column()
-  // content: string;
+  @CreateDateColumn()
+  createdAt: Date;
 
-  // @CreateDateColumn()
-  // createdAt: Date;
-
-  // @UpdateDateColumn()
-  // updatedAt: Date;
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

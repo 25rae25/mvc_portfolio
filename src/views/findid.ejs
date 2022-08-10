@@ -9,9 +9,9 @@
       defer
     ></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/findid.css" />
     <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/login.css" />
-    <title>로그인</title>
+    <title>아이디찾기</title>
   </head>
   <body>
     <div class="navi_wrapper">
@@ -28,20 +28,29 @@
     </div>
     <!--  navi_wrapper  -->
 
-    <div class="line_wrap">로그인</div>
+    <div class="line_wrap">아이디찾기</div>
 
     <div class="login_wrap">
       <form action="" method="post">
+        <!-- <div class="login_img">
+            <img src="/images/login.jpg" alt="login" />
+          </div> -->
         <div class="login">
           <label for="login">아이디</label>
           <input type="text" / id="login" name="id" placeholder="ID">
           <label for="pwd">비밀번호</label>
           <input type="text" / id="pwd" name="pwd" placeholder="Password">
           <div class="check">
-            <button type="button">로그인</button>
-            <a href="#">회원가입</a>
-            <a href="#">아이디 찾기</a>
-            <a href="#">비밀번호 찾기</a>
+            <a href="#" class="check_a">아이디 찾기</a>
+            <a href="#" class="check_a">비밀번호 찾기</a>
+            <div class="checkin">
+              <a href="#">
+                <button type="button">로그인</button>
+              </a>
+              <a href="#">
+                <button type="button">회원가입</button>
+              </a>
+            </div>
           </div>
         </div>
       </form>

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/home.css" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="/js/home.js"></script>
     <title>정보 글쓰기</title>
   </head>
   <body>
@@ -33,6 +36,23 @@
     </div>
     <!-- write_wrap -->
 
-    <div></div>
+    <h2><%= data.data %></h2>
+    <input id="health" type="text" />
+    <button id="button" onclick="health()">확인</button>
+
+    <input id="test" type="text" />
+    <button id="button" onclick="test()">확인</button>
+
+    <h1>테스트 제목</h1>
+    <div>-------------------------</div>
+    <a href="/home2/1">페이지 이동</a>
+    <div>-------------------------</div>
+    <% data.forEach(el => { %>
+    <h2><%= el.data %></h2>
+    <% }) %>
+
+    <div>-------------------------</div>
+    <div class="data" id="data">데이터</div>
+    <div>-------------------------</div>
   </body>
 </html>

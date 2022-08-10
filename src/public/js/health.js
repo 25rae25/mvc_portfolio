@@ -1,5 +1,5 @@
 function health() {
-  const inputValue = document.getElementById('').value;
+  const inputValue = document.getElementById('health').value;
 
   axios
     .post('/health', {
@@ -7,7 +7,7 @@ function health() {
     })
     .then((res) => {
       const div = document.createElement('div');
-      div.innerText = res.data.data;
-      document.getElementById('data').appendChild(div);
+      div.innerText = res.data.title;
+      document.getElementById('health').appendChild(div);
     });
 }

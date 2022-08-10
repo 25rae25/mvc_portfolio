@@ -15,7 +15,10 @@ export class HealthService {
 
   async create(data) {
     return await this.healthRepository.save({
-      data: data.data,
+      number: data.number,
+      title: data.title,
+      name: data.name,
+      content: data.content,
     });
   }
 }
