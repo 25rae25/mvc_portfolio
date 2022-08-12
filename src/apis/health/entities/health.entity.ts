@@ -5,6 +5,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Transform } from 'class-transformer';
+import moment = require('moment');
 
 @Entity()
 export class Health {
@@ -12,17 +14,12 @@ export class Health {
   id: string;
 
   @Column()
-  number: number;
-
-  @Column()
   title: string;
 
   @Column()
   name: string;
 
-  @Column()
-  content: string;
-
+  // @Transform((createdAt) => moment(createdAt).format('YYYY/MM/DD'))
   @CreateDateColumn()
   createdAt: Date;
 

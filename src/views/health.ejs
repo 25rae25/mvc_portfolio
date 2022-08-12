@@ -30,13 +30,18 @@
 
     <div class="choice_wrap">
       <div class="choice">
-        <a href="http://localhost:3000/health" class="active">축구</a>
-        <a href="http://localhost:3000/baseketball">농구</a>
+        <a href="/health" class="active">축구</a>
+        <a href="/baseketball">농구</a>
         <a href="#">테니스</a>
         <a href="#">야구</a>
       </div>
     </div>
     <!--  choice_wrap  -->
+
+    <div class="write_wrap">
+      <a href="/write">글쓰기</a>
+    </div>
+    <!--  write_wrap  -->
 
     <div class="health_wrapper">
       <div class="health_wrap">
@@ -52,11 +57,10 @@
           <tbody>
             <% data.forEach(el => { %>
             <tr>
-              <td><%=el.data%></td>
-              <td id="data"></td>
-              <!-- <td><%=el.title%></td>
+              <td><%=el.id%></td>
+              <td><%=el.title%></td>
               <td><%=el.name%></td>
-              <td><%=el.date%></td> -->
+              <td><%=el.createdAt%></td>
             </tr>
             <% }) %>
           </tbody>

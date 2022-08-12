@@ -1,13 +1,15 @@
-function health() {
-  const inputValue = document.getElementById('health').value;
+function enroll() {
+  const name = document.getElementById('name').value;
+  const title = document.getElementById('title').value;
 
   axios
     .post('/health', {
-      data: inputValue,
+      name,
+      title,
     })
     .then((res) => {
       const div = document.createElement('div');
+      div.innerText = res.data.name;
       div.innerText = res.data.title;
-      document.getElementById('health').appendChild(div);
     });
 }

@@ -49,6 +49,34 @@
   color: #000;
 }
 
+/*********  write_wrap  *********/
+.write_wrap {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 20px 0;
+}
+
+.write_wrap a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  background-color: #d3d3d3;
+  height: 40px;
+  width: 200px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: transform 250ms;
+}
+
+.write_wrap a:hover {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  transform: translateY(3px);
+}
+
 /********  health_wrapper  ********/
 .health_wrapper {
   border: 1px solid red;

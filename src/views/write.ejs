@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/write.css" />
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="/js/home.js"></script>
     <title>정보 글쓰기</title>
   </head>
   <body>
@@ -26,33 +25,56 @@
     </div>
     <!--  navi_wrapper  -->
 
+    <div class="line_wrap">글쓰기</div>
+
     <div class="write_wrap">
       <form action="" method="post">
-        <label for="">이름</label>
-        <input type="text" />
-        <label for="">제목</label>
-        <input type="text" />
+        <div class="write">
+          <label for="">제목</label>
+          <input id="title" type="text" />
+        </div>
+        <div class="write">
+          <label for="">이름</label>
+          <input id="name" type="text" />
+        </div>
+        <div class="write">
+          <label for="">이메일</label>
+          <input id="name" type="text" />
+        </div>
+        <div class="write">
+          <label for="">연락처</label>
+          <input id="name" type="text" />
+        </div>
+        <div class="write">
+          <label for="">이름</label>
+          <select name="sport" id="sport">
+            <option value="">축구</option>
+            <option value="">농구</option>
+            <option value="">테니스</option>
+            <option value="">야구</option>
+          </select>
+        </div>
+        <div class="write">
+          <label for="">연락처</label>
+          <input id="phone" type="number" placeholder="숫자만 입력해주세요" />
+        </div>
+        <div class="write">
+          <label for="">내용</label>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="button_wrap">
+          <button id="enroll" type="button" onclick="enroll()">등록하기</button>
+          <button id="cancel" type="button" onclick="">취소하기</button>
+        </div>
       </form>
     </div>
     <!-- write_wrap -->
 
-    <h2><%= data.data %></h2>
-    <input id="health" type="text" />
-    <button id="button" onclick="health()">확인</button>
+    <footer class="footer">
+      <div class="footer_title">문의: whdudfo0124@google.com</div>
+    </footer>
 
-    <input id="test" type="text" />
-    <button id="button" onclick="test()">확인</button>
-
-    <h1>테스트 제목</h1>
-    <div>-------------------------</div>
-    <a href="/home2/1">페이지 이동</a>
-    <div>-------------------------</div>
-    <% data.forEach(el => { %>
-    <h2><%= el.data %></h2>
-    <% }) %>
-
-    <div>-------------------------</div>
-    <div class="data" id="data">데이터</div>
-    <div>-------------------------</div>
+    <!-- 자바 스크립트 연결 -->
+    <script type="text/javascript" src="/js/health.js"></script>
   </body>
 </html>

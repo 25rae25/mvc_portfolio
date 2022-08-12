@@ -17,7 +17,15 @@ export class HomeController {
     return await this.homeService.create(data);
   }
 
-  @Get('findid')
-  @Render('findid')
+  @Get('findId')
+  @Render('findId')
   signup() {}
+
+  @Get('findPw')
+  @Render('findPw')
+  findPw() {}
+
+  @Get('about')
+  @Render('about')
+  about() {}
 }
