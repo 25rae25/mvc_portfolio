@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Health {
+export class Write {
   @PrimaryGeneratedColumn('increment')
   id: string;
 

@@ -62,7 +62,7 @@ body {
 .write_wrap {
   display: flex;
   justify-content: center;
-  height: 550px;
+  height: 588px;
   margin-top: 40px;
 }
 
@@ -80,6 +80,7 @@ body {
 .write input {
   height: 40px;
   width: 80%;
+  text-indent: 10px;
 }
 
 .write label {
@@ -106,6 +107,16 @@ body {
 .button_wrap button {
   padding: 12px;
   cursor: pointer;
+  width: 80%;
+  margin-left: 111px;
+  margin-top: 13px;
+  border-radius: 10px;
+  border: none;
+}
+
+.button_wrap button:hover {
+  background-color: #fff;
+  border: 1px solid #000;
 }
 
 /********  footer  ********/
