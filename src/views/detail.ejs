@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/detail.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+    <title>운동 정보</title>
+  </head>
+  <body>
+    <div class="navi_wrapper">
+      <div class="logo fk">
+        <a href="http://localhost:3000">TogetherSports</a>
+      </div>
+      <div class="navi_wrap">
+        <div class="navi">소개</div>
+        <div class="navi">운동</div>
+        <div class="navi">홍보</div>
+        <div class="navi">로그인</div>
+      </div>
+      <!--  navi_wrap  -->
+    </div>
+    <!--  navi_wrapper  -->
+
+    <div class="line_wrap">운동정보</div>
+
+    <section class="section">
+      <div class="title">
+        <h2><%=data.title %></h2>
+      </div>
+      <div class="type">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>분류</td>
+              <td><%=data.sport %></td>
+              <td>팀명</td>
+              <td><%=data.name %></td>
+              <td>글쓴이</td>
+              <td>niceyoungrae</td>
+            </tr>
+            <tr>
+              <td>포지션</td>
+              <td><%=data.position %></td>
+              <td>이메일</td>
+              <td><%=data.email %></td>
+              <td>연락처</td>
+              <td><%=data.phone %></td>
+            </tr>
+            <td>시간</td>
+            <td><%=data.time %></td>
+            <td>주소</td>
+            <td colspan="3"><%=data.address %></td>
+          </tbody>
+        </table>
+      </div>
+      <div class="content">
+        <textarea name="" id="" style="height: 622px" readonly>
+<%=data.content %></textarea
+        >
+      </div>
+      <div class="listBtn">
+        <button type="button" id="getList">목록</button>
+        <button type="button" id="modify">수정하기</button>
+      </div>
+    </section>
+    <!--  section  -->
+
+    <footer>
+      <div class="footer_wrapper">
+        <div class="footer_wrap">
+          <div class="email">문의 : whdudfo0124@gmail.com</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script src="/js/health.js"></script>
+<script src="/js/detail.js"></script>

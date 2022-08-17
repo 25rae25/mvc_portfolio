@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,8 +32,8 @@
       <div class="choice">
         <a href="/health" class="active">축구</a>
         <a href="/baseketball">농구</a>
-        <a href="#">테니스</a>
-        <a href="#">야구</a>
+        <a href="/tennis">테니스</a>
+        <a href="/baseball">야구</a>
       </div>
     </div>
     <!--  choice_wrap  -->
@@ -48,17 +48,23 @@
         <table class="table">
           <thead>
             <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>이름</th>
-              <th>날짜</th>
+              <th width="5%">번호</th>
+              <th width="10%">운동</th>
+              <th width="10%">포지션</th>
+              <th width="10%">팀명</th>
+              <th width="35%">제목</th>
+              <th width="10%">글쓴이</th>
+              <th width="10%">날짜</th>
             </tr>
           </thead>
           <tbody>
             <% data.forEach(el => { %>
             <tr>
               <td><%=el.id%></td>
-              <td><a href=""><%=el.title%></a></td>
+              <td><%=el.position%></td>
+              <td><%=el.sport%></td>
+              <td><%=el.name%></td>
+              <td><a href="/detail/<%=el.id%>"><%=el.title%></a></td>
               <td><%=el.name%></td>
               <td><%=el.createdAt%></td>
             </tr>
@@ -76,3 +82,4 @@
 </html>
 
 <script src="/js/health.js"></script>
+<script src="/js/date.js"></script>

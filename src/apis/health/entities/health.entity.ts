@@ -17,9 +17,29 @@ export class Health {
   @Column()
   name: string;
 
-  // @Transform((createdAt) => moment(createdAt).format('YYYY/MM/DD'))
-  @CreateDateColumn()
-  createdAt: Date;
+  @Column()
+  phone: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  content: string;
+
+  @Column()
+  position: string;
+
+  @Column()
+  address: string;
+
+  @Column()
+  time: string;
+
+  @Column()
+  sport: string;
+
+  @Column()
+  createdAt: string;
 
   @UpdateDateColumn()
   updatedAt: Date;

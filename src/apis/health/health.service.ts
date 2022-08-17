@@ -10,13 +10,27 @@ export class HealthService {
     private readonly healthRepository: Repository<Health>,
   ) {}
   async find() {
-    return await this.healthRepository.find();
+    const result = await this.healthRepository.find();
+    return result;
   }
 
   async create(data) {
+    const date = new Date();
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    const currentDate = `${yyyy}-${mm}-${dd}`;
     return await this.healthRepository.save({
       title: data.title,
       name: data.name,
+      createdAt: currentDate,
+      email: data.email,
+      content: data.content,
+      phone: data.phone,
+      position: data.position,
+      time: data.time,
+      address: data.address,
+      sport: data.sport,
     });
   }
 }

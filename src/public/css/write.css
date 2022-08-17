@@ -62,7 +62,6 @@ body {
 .write_wrap {
   display: flex;
   justify-content: center;
-  height: 588px;
   margin-top: 40px;
 }
 
@@ -91,6 +90,7 @@ body {
 .write select {
   width: 80%;
   height: 40px;
+  text-indent: 10px;
 }
 
 .write textarea {

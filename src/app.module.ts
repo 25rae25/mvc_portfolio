@@ -1,16 +1,14 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { HealthModule } from './apis/health/health.module';
-import { Home2Module } from './apis/hom2/home2.module';
 import { HomeModule } from './apis/home/home.module';
-import { WriteModule } from './apis/write/write.module';
+import { DetailModule } from './apis/detail/detail.module';
 
 @Module({
   imports: [
     HomeModule,
-    Home2Module,
     HealthModule,
-    WriteModule,
+    DetailModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',

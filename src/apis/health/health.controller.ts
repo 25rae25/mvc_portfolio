@@ -16,10 +16,19 @@ export class HealthController {
 
   @Post('/health')
   async button(@Body() data) {
+    console.log(data);
     return await this.healthService.create(data);
   }
 
   @Get('/login')
   @Render('login')
   login() {}
+
+  @Get('/write')
+  @Render('write')
+  write() {}
+
+  @Get('/detail_update')
+  @Render('detail_update')
+  update() {}
 }
