@@ -50,7 +50,7 @@ function modify() {
   const sport = sports.options[sports.selectedIndex].value;
 
   axios
-    .put('/health', {
+    .post('/detail_update', {
       name,
       title,
       email,

@@ -14,6 +14,14 @@ export class HealthService {
     return result;
   }
 
+  async findOne(id) {
+    return await this.healthRepository.findOne({
+      where: {
+        id,
+      },
+    });
+  }
+
   async create(data) {
     const date = new Date();
     const yyyy = date.getFullYear();
@@ -32,5 +40,13 @@ export class HealthService {
       address: data.address,
       sport: data.sport,
     });
+  }
+
+  async update(data) {
+    const result = await this.healthRepository.update(
+      { title: data.title },
+      { content: data.content },
+    );
+    return result;
   }
 }

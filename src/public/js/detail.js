@@ -5,7 +5,7 @@ document.getElementById('getList').addEventListener('click', () => {
 });
 
 document.getElementById('modify').addEventListener('click', () => {
-  fetch('/health').then(function () {
-    window.location = '/health';
+  fetch('/detail_update').then(function () {
+    window.location = '/detail_update';
   });
 });

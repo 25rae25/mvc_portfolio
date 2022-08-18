@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/write.css" />
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>정보 글쓰기</title>
+    <title>정보수정</title>
   </head>
   <body>
     <div class="navi_wrapper">
@@ -25,17 +25,25 @@
     </div>
     <!--  navi_wrapper  -->
 
-    <div class="line_wrap">글쓰기</div>
+    <div class="line_wrap">수정하기</div>
 
     <div class="write_wrap">
       <form action="" method="post">
         <div class="write">
+          <input
+            id="id"
+            value="<%=data.id %>"
+            type="text"
+            style="display: none"
+          />
+        </div>
+        <div class="write">
           <label for="title">제목</label>
-          <input id="title" type="text" />
+          <input id="title" value="<%=data.title %>" type="text" />
         </div>
         <div class="write">
           <label for="name">팀명</label>
-          <input id="name" type="text" />
+          <input id="name" value="<%=data.name %>" type="text" />
         </div>
         <div class="write">
           <label for="sports">운동</label>
@@ -48,30 +56,37 @@
         </div>
         <div class="write">
           <label for="position">포지션</label>
-          <input id="position" value="<%" ="a" % /> type="text" />
+          <input id="position" value="<%=data.position %>" type="text" />
         </div>
         <div class="write">
           <label for="time">시간</label>
-          <input id="time" type="text" />
+          <input id="time" value="<%=data.time %>" type="text" />
         </div>
         <div class="write">
           <label for="address">주소</label>
-          <input id="address" type="text" />
+          <input id="address" value="<%=data.address %>" type="text" />
         </div>
         <div class="write">
           <label for="email">이메일</label>
-          <input id="email" type="text" />
+          <input id="email" value="<%=data.email %>" type="text" />
         </div>
         <div class="write">
           <label for="phone">연락처</label>
-          <input id="phone" type="number" placeholder="숫자만 입력해주세요" />
+          <input
+            id="phone"
+            value="<%=data.phone %>"
+            type="number"
+            placeholder="숫자만 입력해주세요"
+          />
         </div>
         <div class="write">
           <label for="content">내용</label>
-          <textarea name="" id="content" cols="30" rows="10"></textarea>
+          <textarea name="" id="content" cols="30" rows="10">
+<%=data.content %></textarea
+          >
         </div>
         <div class="button_wrap">
-          <button id="enroll" type="button" onclick="modify()">등록하기</button>
+          <button id="" type="button" onclick="modify()">수정하기</button>
           <button id="cancel" type="button" onclick="">취소하기</button>
         </div>
       </form>
