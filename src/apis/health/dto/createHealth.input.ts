@@ -1,15 +1,6 @@
-import {
-  Column,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column } from 'typeorm';
 
-@Entity()
-export class Health {
-  @PrimaryGeneratedColumn('increment')
-  id: string;
-
+export class CreateHealthInput {
   @Column()
   title: string;
 
@@ -39,7 +30,4 @@ export class Health {
 
   @Column()
   createdAt: string;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 }

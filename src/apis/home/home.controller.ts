@@ -3,7 +3,9 @@ import { HomeService } from './home.service';
 
 @Controller()
 export class HomeController {
-  constructor(private readonly homeService: HomeService) {}
+  constructor(
+    private readonly homeService: HomeService, //
+  ) {}
 
   @Get('/')
   @Render('home')

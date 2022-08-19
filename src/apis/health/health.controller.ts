@@ -4,11 +4,11 @@ import {
   Delete,
   Get,
   Param,
-  Patch,
   Post,
   Put,
   Render,
 } from '@nestjs/common';
+import { CreateHealthInput } from './dto/createHealth.input';
 import { HealthService } from './health.service';
 
 @Controller()
@@ -25,16 +25,10 @@ export class HealthController {
   }
 
   @Post('/health')
-  async button(@Body() data) {
-    console.log(data);
-    return await this.healthService.create(data);
+  async button(@Body() CreateHealthInput) {
+    console.log(CreateHealthInput);
+    return await this.healthService.create(CreateHealthInput);
   }
-
-  // @Patch('/detail_update')
-  // async modify(@Body() data) {
-  //   console.log(data);
-  //   return await this.healthService.modify(data);
-  // }
 
   @Delete()
   async delete() {}
@@ -47,21 +41,16 @@ export class HealthController {
   @Render('write')
   write() {}
 
-  @Get('/detail_update')
-  @Render('detail_update')
-  async detail(@Param('id') id: string) {
-    const result = await this.healthService.findOne(id);
-    return { data: result };
-  }
+  // @Get('/detail_update')
+  // @Render('detail_update')
+  // async detail(@Param('id') id: string) {
+  //   const result = await this.healthService.findOne(id);
+  //   return { data: result };
+  // }
 
-  @Put('update')
-  async update(@Body() data) {
-    return await this.healthService.update(data);
-  }
-
-  // @Post('/detail_update')
-  // async button2(@Body() data) {
-  //   console.log(data);
-  //   return await this.healthService.modify(data);
+  // @Put('detail_update')
+  // async update(@Body() updateHealthInput) {
+  //   console.log(updateHealthInput);
+  //   return await this.healthService.update(updateHealthInput);
   // }
 }

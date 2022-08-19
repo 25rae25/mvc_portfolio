@@ -10,7 +10,15 @@ export class HealthService {
     private readonly healthRepository: Repository<Health>,
   ) {}
   async find() {
-    const result = await this.healthRepository.find();
+    const result = await this.healthRepository.find({
+      order: {
+        id: 'desc',
+      },
+    });
+
+    // const count = await this.healthRepository.count()
+    // return {result, count}
+
     return result;
   }
 
@@ -22,31 +30,59 @@ export class HealthService {
     });
   }
 
-  async create(data) {
+  // async create(data) {
+  //   const date = new Date();
+  //   const yyyy = date.getFullYear();
+  //   const mm = String(date.getMonth() + 1).padStart(2, '0');
+  //   const dd = String(date.getDate()).padStart(2, '0');
+  //   const currentDate = `${yyyy}-${mm}-${dd}`;
+  //   return await this.healthRepository.save({
+  //     title: data.title,
+  //     name: data.name,
+  //     createdAt: currentDate,
+  //     email: data.email,
+  //     content: data.content,
+  //     phone: data.phone,
+  //     position: data.position,
+  //     time: data.time,
+  //     address: data.address,
+  //     sport: data.sport,
+  //   });
+  // }
+
+  async create(CreateHealthInput) {
     const date = new Date();
     const yyyy = date.getFullYear();
     const mm = String(date.getMonth() + 1).padStart(2, '0');
     const dd = String(date.getDate()).padStart(2, '0');
     const currentDate = `${yyyy}-${mm}-${dd}`;
+
     return await this.healthRepository.save({
-      title: data.title,
-      name: data.name,
       createdAt: currentDate,
-      email: data.email,
-      content: data.content,
-      phone: data.phone,
-      position: data.position,
-      time: data.time,
-      address: data.address,
-      sport: data.sport,
+      ...CreateHealthInput,
     });
   }
 
-  async update(data) {
-    const result = await this.healthRepository.update(
-      { title: data.title },
-      { content: data.content },
-    );
-    return result;
-  }
+  // async update(updateHealthInput) {
+  //   const date = new Date();
+  //   const yyyy = date.getFullYear();
+  //   const mm = String(date.getMonth() + 1).padStart(2, '0');
+  //   const dd = String(date.getDate()).padStart(2, '0');
+  //   const currentDate = `${yyyy}-${mm}-${dd}`;
+
+  //   const findUser = await this.healthRepository.findOne({
+  //     where: { id: updateHealthInput.id },
+  //   });
+
+  //   console.log(findUser, '==================');
+
+  //   const result = await this.healthRepository.save({
+  //     createdAt: currentDate,
+  //     findUser,
+  //     ...updateHealthInput,
+  //   });
+
+  //   console.log(result, '++++++++++++');
+  //   return result;
+  // }
 }
