@@ -7,11 +7,11 @@ import { Health } from '../health/entities/health.entity';
 export class DetailService {
   constructor(
     @InjectRepository(Health)
-    private readonly healthRepository: Repository<Health>, //
+    private readonly detailRepository: Repository<Health>, //
   ) {}
 
   async findOne(id) {
-    return await this.healthRepository.findOne({
+    return await this.detailRepository.findOne({
       where: {
         id,
       },

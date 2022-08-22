@@ -4,7 +4,7 @@ document.getElementById('getList').addEventListener('click', () => {
   });
 });
 
-document.getElementById('modify').addEventListener('click', () => {
+document.getElementById('update').addEventListener('click', () => {
   fetch('/update').then(function () {
     window.location = '/update';
   });

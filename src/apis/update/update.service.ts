@@ -7,14 +7,27 @@ import { Health } from '../health/entities/health.entity';
 export class UpdateService {
   constructor(
     @InjectRepository(Health)
-    private readonly healthRepository: Repository<Health>, //
+    private readonly updateRepository: Repository<Health>, //
   ) {}
 
   async findOne(id) {
-    return await this.healthRepository.findOne({
+    return await this.updateRepository.findOne({
       where: {
         id,
       },
     });
+  }
+
+  async update({ id, CreateHealthInput }) {
+    const findUpdate = await this.updateRepository.findOne({
+      where: { id: id },
+    });
+    console.log(findUpdate, '12313123123123213');
+    const result = await this.updateRepository.save({
+      ...findUpdate,
+      ...CreateHealthInput,
+    });
+    console.log(result, '===================');
+    return result;
   }
 }

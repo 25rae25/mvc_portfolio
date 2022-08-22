@@ -9,7 +9,9 @@ export class DetailController {
 
   @Get('/:id')
   @Render('detail')
-  async detail(@Param('id') id: string) {
+  async detail(
+    @Param('id') id: string, //
+  ) {
     const result = await this.detailService.findOne(id);
     return { data: result };
   }

@@ -37,6 +37,9 @@ export class Health {
   @Column()
   sport: string;
 
+  // @Column({ nullable: true })
+  // createdAt: string;
+
   @Column()
   createdAt: string;
 
