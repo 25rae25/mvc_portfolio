@@ -156,6 +156,10 @@ td {
   border: 1px solid #000;
 }
 
+.listBtn a {
+  padding: 10px 50px;
+}
+
 /*********  footer_wrapper  *********/
 .footer_wrapper {
   width: 80%;

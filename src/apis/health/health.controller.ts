@@ -30,9 +30,6 @@ export class HealthController {
     return await this.healthService.create(CreateHealthInput);
   }
 
-  @Delete()
-  async delete() {}
-
   @Get('/login')
   @Render('login')
   login() {}

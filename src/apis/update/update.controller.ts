@@ -18,10 +18,9 @@ export class UpdateController {
 
   @Put('/')
   async update(
-    @Param('id') id: string, //
-    @Body() CreateHealthInput,
+    @Body() data, //
   ) {
-    console.log(CreateHealthInput, '111111111111');
-    return await this.updateService.update({ id, CreateHealthInput });
+    console.log(data, '111111111111');
+    return await this.updateService.update({ data });
   }
 }

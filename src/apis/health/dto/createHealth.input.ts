@@ -2,6 +2,9 @@ import { Column } from 'typeorm';
 
 export class CreateHealthInput {
   @Column()
+  id: string;
+
+  @Column()
   title: string;
 
   @Column()

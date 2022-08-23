@@ -1,4 +1,5 @@
 function modify() {
+  const id = document.getElementById('id').value;
   const title = document.getElementById('title').value;
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
@@ -13,6 +14,7 @@ function modify() {
 
   axios
     .put('/update', {
+      id,
       name,
       title,
       email,
@@ -24,6 +26,7 @@ function modify() {
       sport,
     })
     .then((res) => {
+      div.innerText = res.data.id;
       div.innerText = res.data.name;
       div.innerText = res.data.title;
       div.innerText = res.data.email;
@@ -36,6 +39,6 @@ function modify() {
     });
 
   fetch('/health').then(function () {
-    window.location = 'health';
+    window.location = 'http://localhost:3000/health';
   });
 }

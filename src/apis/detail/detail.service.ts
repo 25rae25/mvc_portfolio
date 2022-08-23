@@ -17,4 +17,12 @@ export class DetailService {
       },
     });
   }
+
+  async delete({ id }) {
+    return await this.detailRepository.findOne({
+      where: {
+        id,
+      },
+    });
+  }
 }
