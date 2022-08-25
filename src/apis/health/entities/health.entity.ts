@@ -40,7 +40,7 @@ export class Health {
   // @Column({ nullable: true })
   // createdAt: string;
 
-  @Column()
+  @Column({ default: true })
   createdAt: string;
 
   @UpdateDateColumn()

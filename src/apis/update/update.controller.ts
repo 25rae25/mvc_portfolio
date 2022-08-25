@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Param, Put, Render } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  Render,
+  Req,
+} from '@nestjs/common';
+import { CreateHealthInput } from '../health/dto/createHealth.input';
 import { UpdateService } from './update.service';
 
 @Controller('update')
@@ -18,9 +28,10 @@ export class UpdateController {
 
   @Put('/')
   async update(
-    @Body() data, //
+    @Body() createHealthInput: CreateHealthInput, //
+    @Req() req,
   ) {
-    console.log(data, '111111111111');
-    return await this.updateService.update({ data });
+    console.log(req, 'CreateHealthInput');
+    return await this.updateService.update({ req, createHealthInput });
   }
 }

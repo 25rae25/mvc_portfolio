@@ -18,11 +18,14 @@ export class DetailService {
     });
   }
 
-  async delete({ id }) {
-    return await this.detailRepository.findOne({
-      where: {
-        id,
-      },
+  async delete(res) {
+    console.log(res);
+    const findId = await this.detailRepository.findOne({
+      where: { title: res.title },
     });
+    console.log(findId, '33333333333333333');
+    const result = await this.detailRepository.delete(findId);
+    console.log(result, '444');
+    return result.affected ? true : false;
   }
 }

@@ -31,6 +31,6 @@ export class CreateHealthInput {
   @Column()
   sport: string;
 
-  @Column()
+  @Column({ default: true })
   createdAt: string;
 }

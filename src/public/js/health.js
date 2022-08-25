@@ -34,4 +34,8 @@ function add() {
       div.innerText = res.data.address;
       div.innerText = res.data.sport;
     });
+
+  fetch('/health').then(function () {
+    window.location = 'http://localhost:3000/health';
+  });
 }

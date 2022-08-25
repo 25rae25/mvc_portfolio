@@ -18,10 +18,20 @@ export class UpdateService {
     });
   }
 
-  async update({ data }) {
-    const result = await this.updateRepository.save({
-      ...data,
+  async update({ req, createHealthInput }) {
+    const findUpdate = await this.updateRepository.findOne({
+      where: {
+        title: req.body.title,
+      },
     });
+    const result = await this.updateRepository.update(
+      {
+        id: findUpdate.id,
+      },
+      {
+        ...createHealthInput,
+      },
+    );
     console.log(result, '===================');
     return result;
   }

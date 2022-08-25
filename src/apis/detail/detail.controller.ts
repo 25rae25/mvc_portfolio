@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Param, Render } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Render, Res } from '@nestjs/common';
 import { DetailService } from './detail.service';
 
 @Controller('detail')
@@ -16,12 +16,12 @@ export class DetailController {
     return { data: result };
   }
 
-  @Delete('/')
+  @Delete('/id')
   async delete(
-    @Param('id') id: string, //
+    @Res() res, //
   ) {
-    const result = await this.detailService.findOne(id);
-    console.log(result);
+    const result = await this.detailService.delete(res);
+    console.log(result, '2222222222222222');
     return result;
   }
 }

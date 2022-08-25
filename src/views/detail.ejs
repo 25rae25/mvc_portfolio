@@ -29,39 +29,38 @@
     <!--  navi_wrapper  -->
 
     <div class="line_wrap">운동정보</div>
-
     <section class="section">
       <div class="title">
-        <h2><%=data.title %></h2>
+        <h2 id="title"><%=data.title %></h2>
       </div>
       <div class="type">
         <table class="table">
           <tbody>
             <tr>
               <td>분류</td>
-              <td><%=data.sport %></td>
+              <td id="sports"><%=data.sport %></td>
               <td>팀명</td>
-              <td><%=data.name %></td>
+              <td id="name"><%=data.name %></td>
               <td>글쓴이</td>
               <td>niceyoungrae</td>
             </tr>
             <tr>
               <td>포지션</td>
-              <td><%=data.position %></td>
+              <td id="position"><%=data.position %></td>
               <td>이메일</td>
-              <td><%=data.email %></td>
+              <td id="email"><%=data.email %></td>
               <td>연락처</td>
-              <td><%=data.phone %></td>
+              <td id="phone"><%=data.phone %></td>
             </tr>
             <td>시간</td>
-            <td><%=data.time %></td>
+            <td id="time"><%=data.time %></td>
             <td>주소</td>
-            <td colspan="3"><%=data.address %></td>
+            <td colspan="3" id="address"><%=data.address %></td>
           </tbody>
         </table>
       </div>
       <div class="content">
-        <textarea name="" id="" style="height: 622px" readonly>
+        <textarea name="" id="content" style="height: 622px" readonly>
 <%=data.content %></textarea
         >
       </div>
@@ -87,3 +86,4 @@
 
 <script src="/js/health.js"></script>
 <script src="/js/detail.js"></script>
+<script src="/js/delete.js"></script>

@@ -30,16 +30,14 @@
     <div class="write_wrap">
       <form action="" method="post">
         <div class="write">
+          <label for="title">제목</label>
           <input
-            id="id"
-            value="<%=data.id %>"
-            style="display: none"
+            id="title"
+            class="title"
+            readonly
+            value="<%=data.title %>"
             type="text"
           />
-        </div>
-        <div class="write">
-          <label for="title">제목</label>
-          <input id="title" value="<%=data.title %>" type="text" />
         </div>
         <div class="write">
           <label for="name">팀명</label>
@@ -98,7 +96,7 @@
     </footer>
 
     <!-- 자바 스크립트 연결 -->
-    <script type="text/javascript" src="/js/detail.js"></script>
+    <!-- <script type="text/javascript" src="/js/detail.js"></script> -->
     <script type="text/javascript" src="/js/update.js"></script>
   </body>
 </html>
