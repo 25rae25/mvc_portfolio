@@ -18,10 +18,10 @@ export class DetailService {
     });
   }
 
-  async delete(res) {
-    console.log(res);
+  async delete(id) {
+    console.log(id);
     const findId = await this.detailRepository.findOne({
-      where: { title: res.title },
+      where: { id },
     });
     console.log(findId, '33333333333333333');
     const result = await this.detailRepository.delete(findId);

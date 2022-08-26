@@ -9,6 +9,10 @@
       defer
     ></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6dca3e9c71.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/health.css" />
     <title>운동 홍보</title>
@@ -75,6 +79,56 @@
     </div>
     <!-- health_wrapper -->
 
+    <div class="page_wrap">
+      <div class="paging">
+        <div class="ctrlBack">
+          <a href="/recruit_art/all" id="leftStart" class="leftStart">
+            <i class="arrow fa-solid fa-angles-left"></i>
+          </a>
+
+          <a href="" id="left" class="right">
+            <i class="arrow fa-solid fa-angle-left"></i>
+          </a>
+
+          <div class="pageNum" id="pageNum">
+            <form action="" id="7">
+              <input type="hidden" name="id" value="1" />
+              <button id="pageButton1" class="pageButton">1</button>
+            </form>
+
+            <form action="" id="7">
+              <input type="hidden" name="id" value="2" />
+              <button id="pageButton2" class="pageButton">2</button>
+            </form>
+
+            <form action="" id="7">
+              <input type="hidden" name="id" value="3" />
+              <button id="pageButton3" class="pageButton">3</button>
+            </form>
+
+            <form action="" id="7">
+              <input type="hidden" name="id" value="4" />
+              <button id="pageButton4" class="pageButton">4</button>
+            </form>
+
+            <form action="" id="7">
+              <input type="hidden" name="id" value="5" />
+              <button id="pageButton5" class="pageButton">5</button>
+            </form>
+          </div>
+
+          <a href="" id="right" class="right">
+            <i class="arrow fa-solid fa-angle-right"></i>
+          </a>
+
+          <a href="/recruit_art/all?id=7" id="rightEnd" class="rightEnd">
+            <i class="arrow fa-solid fa-angles-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- page_wrap -->
+
     <footer class="footer">
       <div class="footer_title">문의: whdudfo0124@google.com</div>
     </footer>
@@ -83,3 +137,75 @@
 
 <script src="/js/health.js"></script>
 <script src="/js/date.js"></script>
+
+<script>
+  const pageButton = () => {
+    const URLSearch = new URLSearchParams(location.search);
+    const path = location.pathname;
+    let pageNum;
+    if (document.getElementById('pageNum').firstElementChild !== null) {
+      pageNum = document
+        .getElementById('pageNum')
+        .firstElementChild.getAttribute('id');
+    }
+    const count = document.getElementById('pageNum').childElementCount;
+    let getQueryString;
+
+    document.getElementById('left').addEventListener('click', () => {
+      if (URLSearch == 0 || URLSearch.get('id') == 1) {
+        getQueryString = '1';
+      } else {
+        getQueryString = URLSearch.get('id') - 1;
+      }
+
+      document
+        .getElementById('left')
+        .setAttribute('href', `${path}?id=${getQueryString}`);
+    });
+
+    document.getElementById('right').addEventListener('click', () => {
+      if (URLSearch == 0) {
+        if (count == 1) {
+          getQueryString = '1';
+        } else {
+          getQueryString = '2';
+        }
+      } else if (Number(URLSearch.get('id')) >= pageNum) {
+        getQueryString = pageNum;
+      } else {
+        getQueryString = Number(URLSearch.get('id')) + 1;
+      }
+      document
+        .getElementById('right')
+        .setAttribute('href', `${path}?id=${getQueryString}`);
+    });
+
+    if (URLSearch.get('id') == null) {
+      if (document.getElementById('pageButton1') !== null) {
+        document.getElementById('pageButton1').style.border = '2px solid black';
+      }
+    } else {
+      const query = 'pageButton' + URLSearch.get('id');
+      document.getElementById(query).style.border = '2px solid black';
+    }
+  };
+
+  const tpyeSelect = () => {
+    const url = window.location.pathname;
+    if (url == '/recruit_art/all') {
+      document.getElementById('typeAll').style.border = '2px solid black';
+    } else if (url == '/recruit_art/orchestra') {
+      document.getElementById('typeOrchestra').style.border = '2px solid black';
+    } else if (url == '/recruit_art/choir') {
+      document.getElementById('typeChoir').style.border = '2px solid black';
+    } else if (url == '/recruit_art/administration') {
+      document.getElementById('typeAdministration').style.border =
+        '2px solid black';
+    } else if (url == '/recruit_art/etc') {
+      document.getElementById('typeEtc').style.border = '2px solid black';
+    }
+  };
+
+  tpyeSelect();
+  pageButton();
+</script>

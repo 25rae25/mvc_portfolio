@@ -115,6 +115,56 @@ td {
   font-size: 0.8rem;
 }
 
+/*********  page_wrap  *********/
+.page_wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.paging {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 150px;
+}
+.paging .ctrlBack {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.paging .ctrlBack .pageNum {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+}
+
+.paging .ctrlBack .pageNum form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  color: black;
+  border-radius: 10%;
+  font-size: 18px;
+  width: 40px;
+  height: 30px;
+  background-color: white;
+  color: black;
+}
+
+.paging .ctrlBack a i {
+  color: black;
+}
+
 /********  footer  ********/
 footer {
   display: flex;
