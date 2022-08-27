@@ -1,5 +1,6 @@
 import {
   Column,
+  DeleteDateColumn,
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -37,12 +38,12 @@ export class Health {
   @Column()
   sport: string;
 
-  // @Column({ nullable: true })
-  // createdAt: string;
-
   @Column({ default: true })
   createdAt: string;
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @DeleteDateColumn()
+  deleteAt: Date;
 }

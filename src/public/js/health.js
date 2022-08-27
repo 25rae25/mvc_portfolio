@@ -36,6 +36,6 @@ function add() {
     });
 
   fetch('/health').then(function () {
-    window.location = 'http://localhost:3000/health';
+    window.location = '/health';
   });
 }
