@@ -4,6 +4,8 @@ import { HealthModule } from './apis/health/health.module';
 import { HomeModule } from './apis/home/home.module';
 import { DetailModule } from './apis/detail/detail.module';
 import { UpdateModule } from './apis/update/update.module';
+import { AuthModule } from './apis/auth/auth.module';
+import { UserModule } from './apis/user/user.module';
 
 @Module({
   imports: [
@@ -11,6 +13,8 @@ import { UpdateModule } from './apis/update/update.module';
     HealthModule,
     DetailModule,
     UpdateModule,
+    AuthModule,
+    UserModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',

@@ -19,13 +19,8 @@ export class DetailService {
   }
 
   async delete(data) {
-    console.log(data);
-    const findId = await this.detailRepository.findOne({
-      where: { id: data.id },
-    });
-    console.log(findId, '33333333333333333');
-    const result = await this.detailRepository.delete(findId);
-    console.log(result, '444');
-    return result.affected ? true : false;
+    const result = await this.detailRepository.delete({ id: data.id });
+    return result;
+    // return result.affected ? true : false;
   }
 }

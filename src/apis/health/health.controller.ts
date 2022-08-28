@@ -50,4 +50,7 @@ export class HealthController {
   //   console.log(updateHealthInput);
   //   return await this.healthService.update(updateHealthInput);
   // }
+  @Get('/signUp')
+  @Render('signUp')
+  signUp() {}
 }

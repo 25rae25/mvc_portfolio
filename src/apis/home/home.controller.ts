@@ -18,16 +18,4 @@ export class HomeController {
   async button(@Body() data) {
     return await this.homeService.create(data);
   }
-
-  @Get('findId')
-  @Render('findId')
-  signup() {}
-
-  @Get('findPw')
-  @Render('findPw')
-  findPw() {}
-
-  @Get('about')
-  @Render('about')
-  about() {}
 }
