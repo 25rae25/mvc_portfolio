@@ -10,9 +10,19 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  async find() {
-    return this.userRepository.find();
-  }
+  // async find() {
+  //   const result = await this.userRepository.find({
+  //     order: {
+  //       id: 'desc',
+  //     },
+  //   });
+  //   return result;
+  // }
 
-  async create() {}
+  async create({ pwd, userInfo }) {
+    return await this.userRepository.save({
+      ...userInfo,
+      pwd,
+    });
+  }
 }

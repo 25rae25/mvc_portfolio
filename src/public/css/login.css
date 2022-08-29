@@ -83,6 +83,24 @@ form {
   animation: title 2s 1 forwards;
 }
 
+.login .naver {
+  /* padding: 10px 20px; */
+  outline: 0px;
+  border-radius: 10px;
+  box-shadow: rgb(228 228 228) 0px 1px 1px 1px;
+  background-color: rgb(3, 199, 90);
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  position: relative;
+}
+
+.login .naver img {
+  width: 30px;
+  position: absolute;
+  left: 4%;
+  top: 12%;
+}
+
 .login input {
   height: 50px;
   margin: 10px 0;

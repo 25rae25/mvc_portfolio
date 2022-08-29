@@ -6,7 +6,10 @@ export class User {
   id: string;
 
   @Column()
-  name: string;
+  nickname: string;
+
+  @Column()
+  pwd: string;
 
   @Column({ nullable: true })
   phone: string;

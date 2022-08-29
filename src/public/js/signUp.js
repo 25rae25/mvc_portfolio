@@ -1,18 +1,18 @@
 function signUp() {
-  const userId = document.getElementById('userId').value;
+  const nickname = document.getElementById('nickname').value;
   const email = document.getElementById('email').value;
   const pwd = document.getElementById('pwd').value;
   const phone = document.getElementById('phone').value;
 
   axios
-    .put('/singUp', {
-      userId,
+    .post('/signUp', {
+      nickname,
       email,
       pwd,
       phone,
     })
     .then((res) => {
-      div.innerText = res.data.userId;
+      div.innerText = res.data.nickname;
       div.innerText = res.data.email;
       div.innerText = res.data.pwd;
       div.innerText = res.data.phone;

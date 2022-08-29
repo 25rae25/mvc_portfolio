@@ -87,6 +87,8 @@ body {
   width: 75%;
   text-align: center;
   font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #000;
 }
 
 .check {
