@@ -60,15 +60,15 @@ body {
 
 /******  login, check  *******/
 .login_wrap {
-  height: 58vh;
-  margin-top: 7%;
+  height: 60vh;
+  margin-top: 6%;
 }
 
 form {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin-top: 8%;
+  margin-top: 6%;
 }
 
 .login {
@@ -84,7 +84,8 @@ form {
 }
 
 .login .naver {
-  /* padding: 10px 20px; */
+  width: 100%;
+  padding: 10px 20px;
   outline: 0px;
   border-radius: 10px;
   box-shadow: rgb(228 228 228) 0px 1px 1px 1px;
@@ -94,7 +95,43 @@ form {
   position: relative;
 }
 
+.login .kakao {
+  width: 100%;
+  padding: 10px 20px;
+  outline: 0px;
+  border-radius: 10px;
+  box-shadow: rgb(228 228 228) 0px 1px 1px 1px;
+  background-color: rgb(254, 229, 0);
+  position: relative;
+  font-size: 16px;
+}
+
+.login .google {
+  width: 100%;
+  padding: 10px 20px;
+  outline: 0;
+  border-radius: 10px;
+  box-shadow: 0px 1px 1px 1px #e4e4e4;
+  position: relative;
+  font-size: 16px;
+  background-color: #fff !important;
+}
+
 .login .naver img {
+  width: 30px;
+  position: absolute;
+  left: 4%;
+  top: 12%;
+}
+
+.login .kakao img {
+  width: 30px;
+  position: absolute;
+  left: 4%;
+  top: 12%;
+}
+
+.login .google img {
   width: 30px;
   position: absolute;
   left: 4%;
@@ -115,7 +152,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 230px;
+  height: 305px;
   margin-top: 20px;
 }
 
@@ -139,7 +176,7 @@ form {
   transform: translateY(3px);
 }
 
-.check a {
+.check .link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,11 +190,22 @@ form {
   transition: transform 250ms;
 }
 
-.check a:hover {
+.check .link:hover {
   background-color: #fff;
   color: #000;
   border: 2px solid #000;
   transform: translateY(3px);
+}
+
+.check .find {
+  display: flex;
+  justify-content: space-between;
+}
+
+.check .find a {
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /*********  footer_wrapper  *********/

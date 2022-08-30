@@ -5,9 +5,11 @@ import { DetailModule } from './apis/detail/detail.module';
 import { UpdateModule } from './apis/update/update.module';
 import { AuthModule } from './apis/auth/auth.module';
 import { UserModule } from './apis/user/user.module';
+import { HomeModule } from './apis/home/home.module';
 
 @Module({
   imports: [
+    HomeModule,
     HealthModule,
     DetailModule,
     UpdateModule,

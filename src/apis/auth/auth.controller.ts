@@ -22,7 +22,7 @@ export class AuthController {
   async loginId(
     @Body() data, //
   ) {
-    // console.log(data);
+    console.log(data);
     // const user = await this.userService.findOne({ nickname: data.nickname });
     // if (!user) throw new UnprocessableEntityException('아이디가 없습니다.');
     // const isAuth = await bcrypt.compare(data.pwd, user.pwd);
