@@ -2,10 +2,7 @@ import * as bcrypt from 'bcrypt';
 import {
   Body,
   Controller,
-  Get,
-  InternalServerErrorException,
   Post,
-  Render,
   UnprocessableEntityException,
 } from '@nestjs/common';
 import { UserService } from '../user/user.service';
@@ -23,17 +20,20 @@ export class AuthController {
     @Body() data, //
   ) {
     console.log(data);
-    // const user = await this.userService.findOne({ nickname: data.nickname });
-    // if (!user) throw new UnprocessableEntityException('아이디가 없습니다.');
+    const user = await this.userService.findOne({ data });
+    if (!user) throw new UnprocessableEntityException('아이디가 없습니다.');
     // const isAuth = await bcrypt.compare(data.pwd, user.pwd);
+    // if (isAuth)
+    //   throw new UnprocessableEntityException('비밀번호가 일치하지 않습니다.');
     // const refreshToken = await this.authService.getRefreshToken({
     //   res: req.res,
     //   req: req,
     // });
-    //   if (refreshToken) {
-    //     return await this.authService.getAccessToken({ nickname });
-    //   } else {
-    //     throw new InternalServerErrorException('refresh 토근 발급 실패');
-    //   }
+    //   //   if (refreshToken) {
+    //   //     return await this.authService.getAccessToken({ nickname });
+    //   //   } else {
+    //   //     throw new InternalServerErrorException('refresh 토근 발급 실패');
+    //   //   }
+    // }
   }
 }

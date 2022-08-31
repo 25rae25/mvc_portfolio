@@ -10,14 +10,14 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  // async find() {
-  //   const result = await this.userRepository.find({
-  //     order: {
-  //       id: 'desc',
-  //     },
-  //   });
-  //   return result;
-  // }
+  async findOne(data) {
+    const result = await this.userRepository.find({
+      where: {
+        nickname: data.nickname,
+      },
+    });
+    return result;
+  }
 
   async create({ pwd, userInfo }) {
     return await this.userRepository.save({
