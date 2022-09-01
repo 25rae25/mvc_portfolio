@@ -11,7 +11,7 @@ export class UserService {
   ) {}
 
   async findOne(data) {
-    const result = await this.userRepository.find({
+    const result = await this.userRepository.findOne({
       where: {
         nickname: data.nickname,
       },
