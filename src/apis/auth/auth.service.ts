@@ -15,24 +15,55 @@ export class AuthService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  getAccessToken({ nickname }) {
+  getAccessToken({ user }) {
     const accessToken = this.jwtService.sign(
-      { email: nickname.email, sub: nickname.id },
-      { secret: 'myAccesskey', expiresIn: '1h' },
+      { user: user.userId },
+      { secret: 'accesskey', expiresIn: '1h' },
     );
     return accessToken;
   }
 
-  getRefreshToken({ nickname, res, req }) {
-    const refreshToken = this.jwtService.sign(
-      { email: nickname.email, sub: nickname.id },
-      { secret: 'myRefreshkey', expiresIn: '2w' },
-    );
-    res.setHeader('Set-Cookie', `refreshToken=${refreshToken}`);
+  getRefreshToKen({ user, res, req }) {
+    try {
+      const refreshToken = this.jwtService.sign(
+        { user: user.userId },
+        { secret: 'refreshkey', expiresIn: '2w' },
+      );
+      console.log(refreshToken, '11111111111111111');
+
+      const allowedOrigins = ['http://localhost:3000/'];
+      console.log(allowedOrigins, '----------');
+      const origin = req.headers.origin;
+      if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+      }
+
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+      res.setHeader(
+        'Access-Control-Allow-Methods',
+        'GET,HEAD,OPTIONS,POST,PUT',
+      );
+      res.setHeader(
+        'Access-Control-Allow-Header',
+        'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
+      );
+
+      res.cookie('refreshToken', refreshToken, {
+        path: '/',
+        domain: 'localhost:3000',
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+      });
+
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   // async getUserInfo(req, res, data) {
-  //   let user = await this.userService.findOne({ nickname: data.nickname });
+  //   let user = await this.userService.findOne({ userId: data.userId });
 
   //   if (!user) {
   //     user = await this.userRepository.save({

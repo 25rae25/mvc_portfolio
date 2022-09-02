@@ -10,19 +10,20 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  async findOne(data) {
+  async findOne({ data }) {
     const result = await this.userRepository.findOne({
       where: {
-        nickname: data.nickname,
+        userId: data,
       },
     });
     return result;
   }
 
-  async create({ pwd, userInfo }) {
+  async create({ hashedPwd, createUserInput }) {
+    const { userId, ...items } = createUserInput;
     return await this.userRepository.save({
-      ...userInfo,
-      pwd,
+      ...createUserInput,
+      pwd: hashedPwd,
     });
   }
 }

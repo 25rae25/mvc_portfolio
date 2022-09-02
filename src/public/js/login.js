@@ -7,13 +7,10 @@ document.getElementById('loginBtn').addEventListener('click', () => {
   } else if (getPwd == '') {
     alert('비밀번호를 입력해주세요.');
   } else {
-    fetch('/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
+    axios
+      .post('/login', {
+        data,
+      })
       .then((res) => res.text())
       .then((text) => {
         switch (text) {
