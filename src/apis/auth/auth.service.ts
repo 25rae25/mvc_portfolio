@@ -8,58 +8,31 @@ import { UserService } from '../user/user.service';
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly jwtService: JwtService,
-    private readonly userService: UserService,
-
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
+    private readonly jwtService: JwtService,
+    private readonly userService: UserService,
   ) {}
 
   getAccessToken({ user }) {
     const accessToken = this.jwtService.sign(
-      { user: user.userId },
-      { secret: 'accesskey', expiresIn: '1h' },
+      { userId: user.userId },
+      { secret: 'myAccesskey', expiresIn: '3h' },
     );
+
+    console.log(accessToken, '2222222');
     return accessToken;
   }
 
-  getRefreshToKen({ user, res, req }) {
-    try {
-      const refreshToken = this.jwtService.sign(
-        { user: user.userId },
-        { secret: 'refreshkey', expiresIn: '2w' },
-      );
-      console.log(refreshToken, '11111111111111111');
+  setRefreshToken({ user, res }) {
+    const refreshToken = this.jwtService.sign(
+      { userId: user.userId },
+      { secret: 'myRefreshkey', expiresIn: '24h' },
+    );
 
-      const allowedOrigins = ['http://localhost:3000/'];
-      console.log(allowedOrigins, '----------');
-      const origin = req.headers.origin;
-      if (allowedOrigins.includes(origin)) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-      }
-
-      res.setHeader('Access-Control-Allow-Credentials', 'true');
-      res.setHeader(
-        'Access-Control-Allow-Methods',
-        'GET,HEAD,OPTIONS,POST,PUT',
-      );
-      res.setHeader(
-        'Access-Control-Allow-Header',
-        'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
-      );
-
-      res.cookie('refreshToken', refreshToken, {
-        path: '/',
-        domain: 'localhost:3000',
-        httpOnly: true,
-        secure: true,
-        sameSite: 'none',
-      });
-
-      return true;
-    } catch {
-      return false;
-    }
+    console.log(refreshToken, '2222222');
+    res.setHeader('Set-Cookie', `refreshToken =${refreshToken}`);
+    return refreshToken;
   }
 
   // async getUserInfo(req, res, data) {

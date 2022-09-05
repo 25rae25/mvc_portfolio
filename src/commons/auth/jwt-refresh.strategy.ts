@@ -1,23 +1,23 @@
+import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-jwt';
+import { AuthService } from 'src/apis/auth/auth.service';
 
+@Injectable()
 export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
-  constructor() {
+  constructor(private readonly authService: AuthService) {
     super({
       jwtFromRequest: (req) => {
-        const cookie = req.headers.cookie;
-        const refreshToken = cookie.replace('refreshToken=', '');
-        return refreshToken;
+        const cookies = req.headers.cookies;
+        if (cookies) return cookies.replace('refreshToken=', '');
       },
-      secretOrKey: 'refreshkey',
+      secretOrKey: 'myRefreshkey',
     });
   }
 
-  validate(payload) {
-    console.log(payload);
+  validate(payload: any) {
     return {
-      id: payload.sub,
-      email: payload.email,
+      id: payload.nickname,
     };
   }
 }

@@ -25,13 +25,14 @@ export class AuthController {
   ) {}
 
   @Post('/login')
-  async loginId(
+  async login(
     @Body() data, //
     @Req() req: Request,
     @Res() res: Response,
   ) {
-    const userId = data[0];
-    const pwd = data[1];
+    const userId = data.data[0];
+    const pwd = data.data[1];
+    console.log(data, '23321313131231312312');
     const user = await this.userService.findOne({ data: userId });
 
     if (!user) {
@@ -42,16 +43,15 @@ export class AuthController {
     if (isAuth)
       throw new UnprocessableEntityException('비밀번호가 일치하지 않습니다.');
 
-    const refreshToken = await this.authService.getRefreshToKen({
+    if (!isAuth)
+      throw new UnprocessableEntityException('비밀번호가 일치하지 않습니다.');
+    await this.authService.setRefreshToken({
       user,
       res,
-      req,
     });
 
-    if (refreshToken) {
-      return await this.authService.getAccessToken({ user });
-    } else {
-      throw new InternalServerErrorException('refresh 토근 발급 실패');
-    }
+    const accessToken = this.authService.getAccessToken({ user });
+    console.log(accessToken, '리프레쉬토큰2');
+    res.send(accessToken);
   }
 }

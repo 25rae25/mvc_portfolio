@@ -1,5 +1,5 @@
 document.getElementById('loginBtn').addEventListener('click', () => {
-  const getId = document.getElementById('id').value;
+  const getId = document.getElementById('userId').value;
   const getPwd = document.getElementById('pwd').value;
   const data = [getId, getPwd];
   if (getId == '') {
@@ -11,19 +11,20 @@ document.getElementById('loginBtn').addEventListener('click', () => {
       .post('/login', {
         data,
       })
-      .then((res) => res.text())
-      .then((text) => {
-        switch (text) {
-          case 'checkId':
-            alert('존재하지 않는 아이디입니다.');
-            break;
-          case 'checkPwd':
-            alert('비밀번호가 일치하지 않습니다.');
-            break;
-          case 'loginSuccess':
-            window.location = '/';
-            break;
-        }
-      });
+      .then((res) => console.log(res.data));
+    // .then((res) => res.text())
+    // .then((text) => {
+    //   switch (text) {
+    //     case 'checkId':
+    //       alert('존재하지 않는 아이디입니다.');
+    //       break;
+    //     case 'checkPwd':
+    //       alert('비밀번호가 일치하지 않습니다.');
+    //       break;
+    //     case 'loginSuccess':
+    //       window.location = '/';
+    //       break;
+    //   }
+    // });
   }
 });
