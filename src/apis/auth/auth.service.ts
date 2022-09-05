@@ -16,17 +16,17 @@ export class AuthService {
 
   getAccessToken({ user }) {
     const accessToken = this.jwtService.sign(
-      { userId: user.userId },
+      { nickname: user.nickname },
       { secret: 'myAccesskey', expiresIn: '3h' },
     );
 
-    console.log(accessToken, '2222222');
+    console.log(accessToken, '111111');
     return accessToken;
   }
 
-  setRefreshToken({ user, res }) {
+  setRefreshToken({ user, res, req }) {
     const refreshToken = this.jwtService.sign(
-      { userId: user.userId },
+      { nickname: user.nickname },
       { secret: 'myRefreshkey', expiresIn: '24h' },
     );
 

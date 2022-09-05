@@ -19,7 +19,6 @@ export class UserController {
   ) {
     const { pwd, ...userInfo } = createUserInput;
     const hashedPwd = await bcrypt.hash(pwd, 10);
-    console.log(hashedPwd, '---------123234');
     return this.userService.create({ pwd: hashedPwd, userInfo });
   }
 

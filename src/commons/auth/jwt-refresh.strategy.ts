@@ -1,11 +1,8 @@
-import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-jwt';
-import { AuthService } from 'src/apis/auth/auth.service';
 
-@Injectable()
 export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
-  constructor(private readonly authService: AuthService) {
+  constructor() {
     super({
       jwtFromRequest: (req) => {
         const cookies = req.headers.cookies;
@@ -15,7 +12,7 @@ export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
     });
   }
 
-  validate(payload: any) {
+  async validate(payload: any) {
     return {
       id: payload.nickname,
     };
