@@ -1,5 +1,7 @@
 import { Body, Controller, Get, Post, Render, Req } from '@nestjs/common';
+import * as jwt from 'jsonwebtoken';
 import { HomeService } from './home.service';
+import { Request } from 'express';
 
 @Controller()
 export class HomeController {
@@ -9,9 +11,14 @@ export class HomeController {
 
   @Get('/')
   @Render('home')
-  async home() {
+  async home(
+    @Req() req: Request, //
+  ) {
+    let accessToken = req.headers.cookie.split('=')[1];
+    const checkToken = jwt.verify(accessToken, 'myRefreshkey');
+    console.log(checkToken, '222222222222');
     const result = await this.homeService.find();
-    return { data: result };
+    return { data: result, nickname: checkToken['nickname'] };
   }
 
   @Post('/test')

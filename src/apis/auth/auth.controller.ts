@@ -2,10 +2,12 @@ import * as bcrypt from 'bcrypt';
 import {
   Body,
   Controller,
+  Get,
   Post,
   Req,
   Res,
   UnprocessableEntityException,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
@@ -13,6 +15,7 @@ import { Request, Response } from 'express';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../user/entities/user.entity';
 import { Repository } from 'typeorm';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller()
 export class AuthController {
@@ -24,6 +27,7 @@ export class AuthController {
   ) {}
 
   @Post('/login')
+  // @UseGuards(AuthGuard('refresh'))
   async login(
     @Body() data, //
     @Req() req: Request,
@@ -50,4 +54,31 @@ export class AuthController {
     const accessToken = this.authService.getAccessToken({ user });
     res.send(accessToken);
   }
+
+  // @Get('/login/google')
+  // @UseGuards(AuthGuard('google'))
+  // async loginGoogle(
+  //   @Req() req: Request, //
+  //   @Res() res: Response,
+  // ) {
+  //   await this.authService.getUserInfo(req, res);
+  // }
+
+  // @Get('/login/naver')
+  // @UseGuards(AuthGuard('naver'))
+  // async loginNaver(
+  //   @Req() req: Request, //
+  //   @Res() res: Response,
+  // ) {
+  //   await this.authService.getUserInfo(req, res);
+  // }
+
+  // @Get('/login/kakao')
+  // @UseGuards(AuthGuard('kakao'))
+  // async loginKakao(
+  //   @Req() req: Request, //
+  //   @Res() res: Response,
+  // ) {
+  //   await this.authService.getUserInfo(req, res);
+  // }
 }

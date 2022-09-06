@@ -30,7 +30,6 @@ document.getElementById('loginBtn').addEventListener('click', () => {
   if (getPwd === '') {
     alert('비밀번호를 입력해주세요.');
   }
-
   try {
     axios.post('/login', {
       headers: {

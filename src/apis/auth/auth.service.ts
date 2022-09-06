@@ -50,4 +50,18 @@ export class AuthService {
   // }
 
   // async findId() {}
+
+  // async getUserInfo(req, res) {
+  //   let user = await this.userService.findOne({ userId: req.user.userId });
+
+  //   if (!user) {
+  //     user = await this.userRepository.save({
+  //       email: req.user.email,
+  //       name: req.user.name,
+  //     });
+  //   }
+
+  //   this.setRefreshToken({ email: user.email, res, req });
+  //   res.redirect('http://localhost:3000');
+  // }
 }
