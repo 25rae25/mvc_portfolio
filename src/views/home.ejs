@@ -23,13 +23,13 @@
         <div class="navi">소개</div>
         <div class="navi"><a href="/health">운동</a></div>
         <div class="navi">홍보</div>
-        <div class="navi"><a href="/login">로그인</a></div>
         <div class="loginId">
-          <!-- <span><%=nickname%></span> -->
-
-          <span><%=data ? "aaa" : "bbb" %></span>
+          <% if(nickname){%>
+          <div><%=nickname%>님 환영합니다</div>
+          <% } else {%>
+          <div class="navi"><a href="/login">로그인</a></div>
+          <%}%>
         </div>
-        %>
       </div>
       <!--  navi_wrap  -->
     </div>

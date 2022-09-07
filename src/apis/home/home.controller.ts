@@ -14,15 +14,18 @@ export class HomeController {
   async home(
     @Req() req: Request, //
   ) {
-    let accessToken = req.headers.cookie.split('=')[1];
-    const checkToken = jwt.verify(accessToken, 'myRefreshkey');
-    console.log(checkToken, '222222222222');
-    const result = await this.homeService.find();
-    return { data: result, nickname: checkToken['nickname'] };
-  }
+    let accessToken = '';
+    if (req.headers.cookie) {
+      accessToken = req.headers.cookie.split('refreshToken=')[1];
+    } else {
+      return { nickname: '' };
+    }
 
-  @Post('/test')
-  async button(@Body() data) {
-    return await this.homeService.create(data);
+    if (accessToken !== undefined) {
+      const checkToken = jwt.verify(accessToken, 'myRefreshkey');
+      return { nickname: checkToken['nickname'] };
+    } else {
+      return { nickname: '' };
+    }
   }
 }
