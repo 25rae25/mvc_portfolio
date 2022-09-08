@@ -20,12 +20,15 @@
         <a href="http://localhost:3000">TogetherSports</a>
       </div>
       <div class="navi_wrap">
-        <div class="navi">소개</div>
+        <div class="navi"><a href="/introduce">소개</a></div>
         <div class="navi"><a href="/health">운동</a></div>
         <div class="navi">홍보</div>
         <div class="loginId">
           <% if(nickname){%>
-          <div><%=nickname%>님 환영합니다</div>
+          <div class="id">
+            <span><%=nickname%></span>
+            님 환영합니다
+          </div>
           <% } else {%>
           <div class="navi"><a href="/login">로그인</a></div>
           <%}%>

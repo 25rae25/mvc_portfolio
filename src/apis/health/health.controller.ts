@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-  Render,
-} from '@nestjs/common';
+import { Body, Controller, Get, Post, Render } from '@nestjs/common';
 import { CreateHealthInput } from './dto/createHealth.input';
 import { HealthService } from './health.service';
 
@@ -21,13 +12,13 @@ export class HealthController {
   @Render('health')
   async board() {
     const result = await this.healthService.find();
+    console.log(result, '111111111111111111111');
     return { data: result };
   }
 
   @Post('/health')
-  async button(@Body() CreateHealthInput) {
-    console.log(CreateHealthInput);
-    return await this.healthService.create(CreateHealthInput);
+  async button(@Body() createHealthInput: CreateHealthInput) {
+    return await this.healthService.create(createHealthInput);
   }
 
   @Get('/login')

@@ -15,10 +15,10 @@ export class HealthService {
         id: 'desc',
       },
     });
+    console.log(result, '22222222222222222222');
 
     // const count = await this.healthRepository.count()
     // return {result, count}
-
     return result;
   }
 
@@ -50,7 +50,7 @@ export class HealthService {
   //   });
   // }
 
-  async create(CreateHealthInput) {
+  async create(createHealthInput) {
     const date = new Date();
     const yyyy = date.getFullYear();
     const mm = String(date.getMonth() + 1).padStart(2, '0');
@@ -59,30 +59,7 @@ export class HealthService {
 
     return await this.healthRepository.save({
       createdAt: currentDate,
-      ...CreateHealthInput,
+      ...createHealthInput,
     });
   }
-
-  // async update(updateHealthInput) {
-  //   const date = new Date();
-  //   const yyyy = date.getFullYear();
-  //   const mm = String(date.getMonth() + 1).padStart(2, '0');
-  //   const dd = String(date.getDate()).padStart(2, '0');
-  //   const currentDate = `${yyyy}-${mm}-${dd}`;
-
-  //   const findUser = await this.healthRepository.findOne({
-  //     where: { id: updateHealthInput.id },
-  //   });
-
-  //   console.log(findUser, '==================');
-
-  //   const result = await this.healthRepository.save({
-  //     createdAt: currentDate,
-  //     findUser,
-  //     ...updateHealthInput,
-  //   });
-
-  //   console.log(result, '++++++++++++');
-  //   return result;
-  // }
 }

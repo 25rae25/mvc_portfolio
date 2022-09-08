@@ -53,6 +53,14 @@ body {
   transform: scaleX(1);
 }
 
+.loginId {
+  margin-top: 2px;
+}
+
+.loginId span {
+  font-weight: bold;
+}
+
 /*********  main_wrap  *********/
 .main_wrap {
   position: relative;
