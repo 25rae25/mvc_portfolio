@@ -20,7 +20,6 @@ export class AuthService {
       { secret: 'myAccesskey', expiresIn: '3h' },
     );
 
-    console.log(accessToken, '111111');
     return accessToken;
   }
 
@@ -30,38 +29,27 @@ export class AuthService {
       { secret: 'myRefreshkey', expiresIn: '24h' },
     );
 
-    console.log(refreshToken, '2222222');
     res.setHeader('Set-Cookie', `refreshToken =${refreshToken}`);
     return refreshToken;
   }
 
-  // async getUserInfo(req, res, data) {
-  //   let user = await this.userService.findOne({ userId: data.userId });
+  async getUserInfo(req, res) {
+    let user = await this.userRepository.findOne({
+      where: {
+        nickname: req.user.nickname,
+      },
+    });
 
-  //   if (!user) {
-  //     user = await this.userRepository.save({
-  //       email: req.user.email,
-  //       name: req.user.name,
-  //     });
-  //   }
+    if (!user) {
+      user = await this.userRepository.save({
+        email: req.user.email,
+        name: req.user.name,
+      });
+    }
 
-  //   this.getRefreshToKen({ email: user.email, res, req });
-  //   res.redirect('https://localhost:3000');
-  // }
-
-  // async findId() {}
-
-  // async getUserInfo(req, res) {
-  //   let user = await this.userService.findOne({ userId: req.user.userId });
-
-  //   if (!user) {
-  //     user = await this.userRepository.save({
-  //       email: req.user.email,
-  //       name: req.user.name,
-  //     });
-  //   }
-
-  //   this.setRefreshToken({ email: user.email, res, req });
-  //   res.redirect('http://localhost:3000');
-  // }
+    this.setRefreshToken({ user, res, req });
+    res.redirect('http://localhost:3000');
+    //https://localhost:3000
+    return user;
+  }
 }

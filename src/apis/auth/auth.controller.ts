@@ -26,8 +26,8 @@ export class AuthController {
     private readonly userService: UserService,
   ) {}
 
+  @UseGuards()
   @Post('/login')
-  // @UseGuards(AuthGuard('refresh'))
   async login(
     @Body() data, //
     @Req() req: Request,
@@ -55,30 +55,30 @@ export class AuthController {
     res.send(accessToken);
   }
 
-  // @Get('/login/google')
-  // @UseGuards(AuthGuard('google'))
-  // async loginGoogle(
-  //   @Req() req: Request, //
-  //   @Res() res: Response,
-  // ) {
-  //   await this.authService.getUserInfo(req, res);
-  // }
+  @Get('/login/google')
+  @UseGuards(AuthGuard('google'))
+  async loginGoogle(
+    @Req() req: Request, //
+    @Res() res: Response,
+  ) {
+    await this.authService.getUserInfo(req, res);
+  }
 
-  // @Get('/login/naver')
-  // @UseGuards(AuthGuard('naver'))
-  // async loginNaver(
-  //   @Req() req: Request, //
-  //   @Res() res: Response,
-  // ) {
-  //   await this.authService.getUserInfo(req, res);
-  // }
+  @Get('/login/naver')
+  @UseGuards(AuthGuard('naver'))
+  async loginNaver(
+    @Req() req: Request, //
+    @Res() res: Response,
+  ) {
+    await this.authService.getUserInfo(req, res);
+  }
 
-  // @Get('/login/kakao')
-  // @UseGuards(AuthGuard('kakao'))
-  // async loginKakao(
-  //   @Req() req: Request, //
-  //   @Res() res: Response,
-  // ) {
-  //   await this.authService.getUserInfo(req, res);
-  // }
+  @Get('/login/kakao')
+  @UseGuards(AuthGuard('kakao'))
+  async loginKakao(
+    @Req() req: Request, //
+    @Res() res: Response,
+  ) {
+    await this.authService.getUserInfo(req, res);
+  }
 }

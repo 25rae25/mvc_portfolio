@@ -7,12 +7,13 @@ export class JwtGoogleStrategy extends PassportStrategy(Strategy, 'google') {
     super({
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: 'https://shaki-server.shop/login/google',
+      callbackURL: 'http://localhost:3000/login/google',
       scope: ['email', 'profile'],
     });
   }
 
   validate(_, __, profile) {
+    console.log(profile, '========================');
     return {
       email: profile.emails[0].value,
       name: profile.displayName,
