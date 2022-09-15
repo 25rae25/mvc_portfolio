@@ -33,7 +33,7 @@ export class AuthController {
     @Req() req: Request,
     @Res() res: Response,
   ) {
-    console.log(data);
+    // console.log(data);
     const userId = data.userId;
     const pwd = data.pwd;
     const user = await this.userService.findOne({ data: userId });
@@ -53,6 +53,15 @@ export class AuthController {
 
     const accessToken = this.authService.getAccessToken({ user });
     res.send(accessToken);
+  }
+
+  @UseGuards()
+  @Post('/logout')
+  async logout(
+    @Body() data, //
+  ) {
+    console.log(data, '로그아웃 ===============');
+    const headers = data.req.headers;
   }
 
   @Get('/login/google')

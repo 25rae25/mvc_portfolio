@@ -12,7 +12,6 @@ export class HealthController {
   @Render('health')
   async board() {
     const result = await this.healthService.find();
-    console.log(result, '111111111111111111111');
     return { data: result };
   }
 
