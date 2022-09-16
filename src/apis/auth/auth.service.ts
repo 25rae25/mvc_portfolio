@@ -36,22 +36,19 @@ export class AuthService {
   async getUserInfo(req, res) {
     let user = await this.userRepository.findOne({
       where: {
-        nickname: req.user.nickname,
+        email: req.user.email,
       },
     });
 
     if (!user) {
       user = await this.userRepository.save({
         email: req.user.email,
-        name: req.user.name,
+        nickname: req.user.nickname,
       });
     }
 
     this.setRefreshToken({ user, res, req });
     res.redirect('http://localhost:3000');
-    //https://localhost:3000
     return user;
   }
-
-  //dfnafkjalsdkfh
 }

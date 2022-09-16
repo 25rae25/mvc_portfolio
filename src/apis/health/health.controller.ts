@@ -27,17 +27,4 @@ export class HealthController {
   @Get('/write')
   @Render('write')
   write() {}
-
-  // @Get('/detail_update')
-  // @Render('detail_update')
-  // async detail(@Param('id') id: string) {
-  //   const result = await this.healthService.findOne(id);
-  //   return { data: result };
-  // }
-
-  // @Put('detail_update')
-  // async update(@Body() updateHealthInput) {
-  //   console.log(updateHealthInput);
-  //   return await this.healthService.update(updateHealthInput);
-  // }
 }
