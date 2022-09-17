@@ -4,6 +4,7 @@ import {
   Controller,
   Get,
   Post,
+  Render,
   Req,
   Res,
   UnprocessableEntityException,
@@ -25,6 +26,10 @@ export class AuthController {
     private readonly authService: AuthService, //
     private readonly userService: UserService,
   ) {}
+
+  @Get('/login')
+  @Render('login')
+  loginId() {}
 
   @UseGuards()
   @Post('/login')

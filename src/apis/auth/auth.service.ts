@@ -29,8 +29,7 @@ export class AuthService {
       { secret: 'myRefreshkey', expiresIn: '24h' },
     );
 
-    res.setHeader('Set-Cookie', `refreshToken =${refreshToken}`);
-    return refreshToken;
+    res.cookie('refreshToken', refreshToken);
   }
 
   async getUserInfo(req, res) {

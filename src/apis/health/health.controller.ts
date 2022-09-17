@@ -20,10 +20,6 @@ export class HealthController {
     return await this.healthService.create(createHealthInput);
   }
 
-  @Get('/login')
-  @Render('login')
-  login() {}
-
   @Get('/write')
   @Render('write')
   write() {}
