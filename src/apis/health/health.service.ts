@@ -9,15 +9,19 @@ export class HealthService {
     @InjectRepository(Health)
     private readonly healthRepository: Repository<Health>,
   ) {}
-  async find() {
+  async find(page: string, limit: string) {
+    const parsedPage = parseInt(page);
+    const parsedLimit = parseInt(limit);
     const result = await this.healthRepository.find({
       order: {
         id: 'desc',
       },
+      skip: (parsedPage - 1) * parsedLimit,
+      take: parsedLimit,
     });
 
-    // const count = await this.healthRepository.count()
-    // return {result, count}
+    //   // const count = await this.healthRepository.count()
+    //   // return {result, count}
     return result;
   }
 

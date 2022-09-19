@@ -49,21 +49,4 @@ const pageButton = () => {
   }
 };
 
-const tpyeSelect = () => {
-  const url = window.location.pathname;
-  if (url == '/health/all') {
-    document.getElementById('typeAll').style.border = '2px solid black';
-  } else if (url == '/health/orchestra') {
-    document.getElementById('typeOrchestra').style.border = '2px solid black';
-  } else if (url == '/health/choir') {
-    document.getElementById('typeChoir').style.border = '2px solid black';
-  } else if (url == '/health/administration') {
-    document.getElementById('typeAdministration').style.border =
-      '2px solid black';
-  } else if (url == '/health/etc') {
-    document.getElementById('typeEtc').style.border = '2px solid black';
-  }
-};
-
-tpyeSelect();
 pageButton();

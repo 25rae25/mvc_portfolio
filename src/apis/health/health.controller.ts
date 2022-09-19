@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Render } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, Render } from '@nestjs/common';
 import { CreateHealthInput } from './dto/createHealth.input';
 import { HealthService } from './health.service';
 
@@ -10,8 +10,11 @@ export class HealthController {
 
   @Get('/health')
   @Render('health')
-  async board() {
-    const result = await this.healthService.find();
+  async board(
+    @Query() query: { page: string; limit: string }, //
+  ) {
+    console.log(query, '================');
+    const result = await this.healthService.find(query.page, query.limit);
     return { data: result };
   }
 

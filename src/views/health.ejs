@@ -80,10 +80,10 @@
     </div>
     <!-- health_wrapper -->
 
-    <div class="page_wrap">
+    <!-- <div class="page_wrap">
       <div class="paging">
         <div class="ctrlBack">
-          <a href="/recruit_art/all" id="leftStart" class="leftStart">
+          <a href="/health" id="leftStart" class="leftStart">
             <i class="arrow fa-solid fa-angles-left"></i>
           </a>
 
@@ -127,6 +127,80 @@
           </a>
         </div>
       </div>
+    </div> -->
+
+    <div class="page_wrap">
+      <div class="paging">
+        <div class="ctrlBack">
+          <a href="/health" id="leftStart" class="leftStart">
+            <i class="arrow fa-solid fa-angles-left"></i>
+          </a>
+
+          <a href="" id="left" class="right">
+            <i class="arrow fa-solid fa-angle-left"></i>
+          </a>
+
+          <div class="pageNum" id="pageNum">
+            <form action="" id="7">
+              <input type="hidden" name="id" value="1" />
+              <a
+                href="/health?page=1&limit=10"
+                id="pageButton1"
+                class="pageButton"
+                >1</a
+              >
+            </form>
+
+            <form action="" id="7">
+              <input type="hidden" name="id" value="2" />
+              <a
+                href="/health?page=2&limit=10"
+                id="pageButton2"
+                class="pageButton"
+                >2</a
+              >
+            </form>
+
+            <form action="" id="7">
+              <input type="hidden" name="id" value="3" />
+              <a
+                href="/health?page=3&limit=10"
+                id="pageButton3"
+                class="pageButton"
+                >3</a
+              >
+            </form>
+
+            <form action="" id="7">
+              <input type="hidden" name="id" value="4" />
+              <a
+                href="/health?page=4&limit=10"
+                id="pageButton4"
+                class="pageButton"
+                >4</a
+              >
+            </form>
+
+            <form action="" id="7">
+              <input type="hidden" name="id" value="5" />
+              <a
+                href="/health?page=5&limit=10"
+                id="pageButton5"
+                class="pageButton"
+                >5</a
+              >
+            </form>
+          </div>
+
+          <a href="" id="right" class="right">
+            <i class="arrow fa-solid fa-angle-right"></i>
+          </a>
+
+          <a href="/recruit_art/all?id=7" id="rightEnd" class="rightEnd">
+            <i class="arrow fa-solid fa-angles-right"></i>
+          </a>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">
@@ -137,23 +211,3 @@
 
 <script src="/js/health.js"></script>
 <script src="/js/page.js"></script>
-<script src="/js/pagination.js"></script>
-
-<!-- <script>
-  $('#demo').pagination({
-    dataSource: function (done) {
-      var result = [];
-      for (var i = 1; i < 100; i++) {
-        result.push(i);
-      }
-      done(result);
-    },
-    pageSize: 5,
-    pageNumber: 3,
-    callback: function (data, pagination) {
-      // template method of yourself
-      var html = template(data);
-      dataContainer.html(html);
-    },
-  });
-</script> -->
