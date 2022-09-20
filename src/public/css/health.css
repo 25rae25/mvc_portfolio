@@ -165,6 +165,12 @@ td {
   color: black;
 }
 
+.actived {
+  border: 2px solid #000;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+
 /********  footer  ********/
 footer {
   display: flex;

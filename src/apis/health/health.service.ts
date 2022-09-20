@@ -12,6 +12,9 @@ export class HealthService {
   async find(page: string, limit: string) {
     const parsedPage = parseInt(page);
     const parsedLimit = parseInt(limit);
+    const count = await this.healthRepository.count();
+    const maxPage = Math.ceil(count / parsedLimit);
+
     const result = await this.healthRepository.find({
       order: {
         id: 'desc',

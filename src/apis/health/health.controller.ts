@@ -13,9 +13,8 @@ export class HealthController {
   async board(
     @Query() query: { page: string; limit: string }, //
   ) {
-    console.log(query, '================');
     const result = await this.healthService.find(query.page, query.limit);
-    return { data: result };
+    return { data: result, currentPage: query.page };
   }
 
   @Post('/health')
