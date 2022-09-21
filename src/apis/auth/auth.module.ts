@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { CacheModule, Module } from '@nestjs/common';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtRefreshStrategy } from 'src/commons/auth/jwt-refresh.strategy';
@@ -12,6 +12,7 @@ import { AuthService } from './auth.service';
 
 @Module({
   imports: [
+    CacheModule.register(),
     TypeOrmModule.forFeature([User]), //
     JwtModule.register({}),
   ],

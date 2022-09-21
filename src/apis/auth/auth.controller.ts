@@ -1,30 +1,33 @@
 import * as bcrypt from 'bcrypt';
 import {
   Body,
+  CACHE_MANAGER,
   Controller,
   Get,
+  Inject,
   Post,
   Render,
   Req,
   Res,
+  UnauthorizedException,
   UnprocessableEntityException,
   UseGuards,
 } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
 import { Request, Response } from 'express';
-import { InjectRepository } from '@nestjs/typeorm';
-import { User } from '../user/entities/user.entity';
-import { Repository } from 'typeorm';
 import { AuthGuard } from '@nestjs/passport';
+import * as jwt from 'jsonwebtoken';
+import { Cache } from 'cache-manager';
 
 @Controller()
 export class AuthController {
   constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
     private readonly authService: AuthService, //
     private readonly userService: UserService,
+
+    @Inject(CACHE_MANAGER)
+    private readonly cacheManager: Cache,
   ) {}
 
   @Get('/login')
@@ -60,15 +63,6 @@ export class AuthController {
     res.send(accessToken);
   }
 
-  @UseGuards()
-  @Post('/logout')
-  async logout(
-    @Body() data, //
-  ) {
-    console.log(data, '로그아웃 ===============');
-    const headers = data.req.headers;
-  }
-
   @Get('/login/google')
   @UseGuards(AuthGuard('google'))
   async loginGoogle(
@@ -94,5 +88,31 @@ export class AuthController {
     @Res() res: Response,
   ) {
     await this.authService.getUserInfo(req, res);
+  }
+
+  @Get('/logout')
+  @Render('logout')
+  async logout(
+    @Body() data, //
+    @Req() req: Request,
+    @Res() res: Response,
+  ) {
+    const headers = req.headers;
+
+    let Token;
+    if (headers.cookie) Token = req.headers.cookie.split('=')[1];
+    console.log(headers, '11111111111111');
+
+    try {
+      const myAccess = jwt.verify(Token, 'myRefreshkey');
+
+      await this.cacheManager.set(Token, 'refreshToken', {
+        ttl: myAccess['exp'] - myAccess['iat'],
+      });
+
+      return { aaa: true };
+    } catch {
+      throw new UnauthorizedException();
+    }
   }
 }
