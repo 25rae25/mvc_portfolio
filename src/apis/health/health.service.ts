@@ -7,20 +7,20 @@ import { Health } from './entities/health.entity';
 export class HealthService {
   constructor(
     @InjectRepository(Health)
-    private readonly healthRepository: Repository<Health>,
+    private readonly healthRepository: Repository<Health>, //
   ) {}
   async find(page: string, limit: string) {
     const parsedPage = parseInt(page);
     const parsedLimit = parseInt(limit);
     const count = await this.healthRepository.count();
-    const maxPage = Math.ceil(count / parsedLimit);
+    // const maxPage = Math.ceil(count / parsedLimit);
 
     const result = await this.healthRepository.find({
       order: {
         id: 'desc',
       },
-      skip: (parsedPage - 1) * parsedLimit,
-      take: parsedLimit,
+      // skip: (parsedPage - 1) * parsedLimit,
+      // take: parsedLimit,
     });
 
     //   // const count = await this.healthRepository.count()

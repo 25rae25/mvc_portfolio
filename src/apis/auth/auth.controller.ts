@@ -1,15 +1,12 @@
 import * as bcrypt from 'bcrypt';
 import {
   Body,
-  CACHE_MANAGER,
   Controller,
   Get,
-  Inject,
   Post,
   Render,
   Req,
   Res,
-  UnauthorizedException,
   UnprocessableEntityException,
   UseGuards,
 } from '@nestjs/common';
@@ -17,17 +14,12 @@ import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
 import { Request, Response } from 'express';
 import { AuthGuard } from '@nestjs/passport';
-import * as jwt from 'jsonwebtoken';
-import { Cache } from 'cache-manager';
 
 @Controller()
 export class AuthController {
   constructor(
     private readonly authService: AuthService, //
     private readonly userService: UserService,
-
-    @Inject(CACHE_MANAGER)
-    private readonly cacheManager: Cache,
   ) {}
 
   @Get('/login')
@@ -41,26 +33,28 @@ export class AuthController {
     @Req() req: Request,
     @Res() res: Response,
   ) {
-    // console.log(data);
     const userId = data.userId;
     const pwd = data.pwd;
     const user = await this.userService.findOne({ data: userId });
-
+    console.log(user);
     if (!user) {
       throw new UnprocessableEntityException('아이디가 없습니다.');
+      // retrun false
     }
+
     const isAuth = await bcrypt.compare(pwd, user.pwd);
 
     if (!isAuth)
       throw new UnprocessableEntityException('비밀번호가 일치하지 않습니다.');
-    await this.authService.setRefreshToken({
+
+    await this.authService.token({
       user,
       res,
       req,
     });
 
-    const accessToken = this.authService.getAccessToken({ user });
-    res.send(accessToken);
+    // const accessToken = this.authService.getAccessToken({ user });
+    res.send('accessToken');
   }
 
   @Get('/login/google')
@@ -93,26 +87,10 @@ export class AuthController {
   @Get('/logout')
   @Render('logout')
   async logout(
-    @Body() data, //
-    @Req() req: Request,
+    @Req() req: Request, //
     @Res() res: Response,
   ) {
-    const headers = req.headers;
-
-    let Token;
-    if (headers.cookie) Token = req.headers.cookie.split('=')[1];
-    console.log(headers, '11111111111111');
-
-    try {
-      const myAccess = jwt.verify(Token, 'myRefreshkey');
-
-      await this.cacheManager.set(Token, 'refreshToken', {
-        ttl: myAccess['exp'] - myAccess['iat'],
-      });
-
-      return { aaa: true };
-    } catch {
-      throw new UnauthorizedException();
-    }
+    const result = await this.authService.logout({ req, res });
+    console.log(result);
   }
 }

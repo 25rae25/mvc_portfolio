@@ -59,6 +59,7 @@ body {
 
 .loginId span {
   font-weight: bold;
+  padding-left: 10px;
 }
 
 /*********  main_wrap  *********/

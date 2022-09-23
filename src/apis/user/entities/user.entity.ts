@@ -16,4 +16,8 @@ export class User {
 
   @Column()
   email: string;
+
+  // @ManyToMany(() => Health, (health) => health.user)
+  // @Column()
+  // health: Health;
 }

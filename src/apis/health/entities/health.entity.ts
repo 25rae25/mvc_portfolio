@@ -46,4 +46,8 @@ export class Health {
 
   @DeleteDateColumn()
   deleteAt: Date;
+
+  // @ManyToMany(() => User, (user) => user.health)
+  // @Column()
+  // user: User;
 }

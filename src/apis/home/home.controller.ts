@@ -3,7 +3,7 @@ import * as jwt from 'jsonwebtoken';
 import { HomeService } from './home.service';
 import { Request } from 'express';
 
-@Controller()
+@Controller('home')
 export class HomeController {
   constructor(
     private readonly homeService: HomeService, //
@@ -20,8 +20,9 @@ export class HomeController {
     } else {
       return { nickname: '' };
     }
-
-    if (accessToken !== undefined) {
+    if (accessToken === '') {
+      return { nickname: '' };
+    } else if (accessToken !== undefined) {
       const checkToken = jwt.verify(accessToken, 'myRefreshkey');
       return { nickname: checkToken['nickname'] };
     } else {

@@ -21,13 +21,28 @@
   <body>
     <div class="navi_wrapper">
       <div class="logo fk">
-        <a href="http://localhost:3000">TogetherSports</a>
+        <a href="/home">TogetherSports</a>
       </div>
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
         <div class="navi"><a href="/health?page=1&limit=10">운동</a></div>
-        <div class="navi">홍보</div>
-        <div class="navi"><a href="/login">로그인</a></div>
+        <div class="loginId">
+          <% if(nickname){%>
+          <div class="id">
+            <span style="font-weight: bold"><%=nickname%></span>
+            님 환영합니다
+            <span
+              ><a href="/logout"
+                ><i
+                  class="fa-solid fa-right-from-bracket"
+                  style="padding-left: 10px"
+                ></i></a
+            ></span>
+          </div>
+          <% } else {%>
+          <div class="navi"><a href="/login">로그인</a></div>
+          <%}%>
+        </div>
       </div>
       <!--  navi_wrap  -->
     </div>
@@ -70,7 +85,7 @@
               <td><%=el.position%></td>
               <td><%=el.name%></td>
               <td><a href="/detail/<%=el.id%>"><%=el.title%></a></td>
-              <td><%=el.name%></td>
+              <td><%=el.nickname%></td>
               <td><%=el.createdAt%></td>
             </tr>
             <% }) %>
@@ -87,9 +102,9 @@
             <i class="arrow fa-solid fa-angles-left"></i>
           </a>
 
-          <!-- <a href="" id="left" class="right">
+          <a href="" id="left" class="right">
             <i class="arrow fa-solid fa-angle-left"></i>
-          </a> -->
+          </a>
 
           <div class="pageNum" id="pageNum">
             <% ['1','2','3','4','5'].forEach(pageNum => { %>

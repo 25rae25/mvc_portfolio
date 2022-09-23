@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  sports-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/myfolder/src
+    ports:
+      - 3000:3000
+
+  sports-database:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'sports'
+      MYSQL_ROOT_PASSWORD: '12345678'
+    ports:
+      - 3306:3306
+
+  sports-redis:
+    image: redis:latest
+    ports:
+      - 6379:6379

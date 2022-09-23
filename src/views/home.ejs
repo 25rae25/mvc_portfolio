@@ -11,23 +11,30 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/home.css" />
+    <script
+      src="https://kit.fontawesome.com/8ddf9e168a.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>우리동네 운동모임</title>
   </head>
   <body>
     <div class="navi_wrapper">
       <div class="logo fk">
-        <a href="http://localhost:3000">TogetherSports</a>
+        <a href="/home">TogetherSports</a>
       </div>
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
         <div class="navi"><a href="/health?page=1&limit=10">운동</a></div>
-        <div class="navi">홍보</div>
         <div class="loginId">
           <% if(nickname){%>
           <div class="id">
             <span><%=nickname%></span>
             님 환영합니다
+            <span
+              ><a href="/logout"
+                ><i class="fa-solid fa-right-from-bracket"></i></a
+            ></span>
           </div>
           <% } else {%>
           <div class="navi"><a href="/login">로그인</a></div>

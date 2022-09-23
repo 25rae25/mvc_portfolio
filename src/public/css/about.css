@@ -16,6 +16,9 @@ body {
   margin: 0;
 }
 
+.id {
+  padding-top: 2px;
+}
 /******  navi_wrapper  *******/
 .navi_wrapper {
   display: flex;

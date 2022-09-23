@@ -8,6 +8,10 @@
       src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
       defer
     ></script>
+    <script
+      src="https://kit.fontawesome.com/6dca3e9c71.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/common.css" />
@@ -16,13 +20,28 @@
   <body>
     <div class="navi_wrapper">
       <div class="logo fk">
-        <a href="http://localhost:3000">TogetherSports</a>
+        <a href="/home">TogetherSports</a>
       </div>
       <div class="navi_wrap">
-        <div class="navi">소개</div>
-        <div class="navi"><a href="http://localhost:3000/health">운동</a></div>
-        <div class="navi">홍보</div>
-        <div class="navi">로그인</div>
+        <div class="navi"><a href="/about">소개</a></div>
+        <div class="navi"><a href="/health">운동</a></div>
+        <div class="loginId">
+          <% if(nickname){%>
+          <div class="id">
+            <span style="font-weight: bold"><%=nickname%></span>
+            님 환영합니다
+            <span
+              ><a href="/logout"
+                ><i
+                  class="fa-solid fa-right-from-bracket"
+                  style="padding-left: 10px"
+                ></i></a
+            ></span>
+          </div>
+          <% } else {%>
+          <div class="navi"><a href="/login">로그인</a></div>
+          <%}%>
+        </div>
       </div>
       <!--  navi_wrap  -->
     </div>

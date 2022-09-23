@@ -39,7 +39,7 @@ document.getElementById('loginBtn').addEventListener('click', () => {
       pwd: getPwd,
     });
     // alert(`${getId}님 안녕하세요!!`);
-    window.location = '/';
+    window.location = '/home';
   } catch (error) {
     console.log(error.message);
   }

@@ -25,6 +25,9 @@
   font-size: 1.125rem;
 }
 
+.id {
+  padding-top: 2px;
+}
 /*********  choice_wrap  *********/
 .choice_wrap {
   width: 100%;
