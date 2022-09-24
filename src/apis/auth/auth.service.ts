@@ -52,7 +52,6 @@ export class AuthService {
 
     this.token({ user, res, req });
     res.redirect('http://localhost:3000/home');
-    return user;
   }
 
   async logout({ req, res }) {

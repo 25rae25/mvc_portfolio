@@ -36,10 +36,9 @@ export class AuthController {
     const userId = data.userId;
     const pwd = data.pwd;
     const user = await this.userService.findOne({ data: userId });
-    console.log(user);
+
     if (!user) {
-      throw new UnprocessableEntityException('아이디가 없습니다.');
-      // retrun false
+      throw new UnprocessableEntityException('아이디가 존재하지 않습니다.');
     }
 
     const isAuth = await bcrypt.compare(pwd, user.pwd);
@@ -54,7 +53,8 @@ export class AuthController {
     });
 
     // const accessToken = this.authService.getAccessToken({ user });
-    res.send('accessToken');
+    res.send('Token');
+    return true;
   }
 
   @Get('/login/google')
