@@ -31,7 +31,6 @@ export class UpdateController {
     @Body() createHealthInput: CreateHealthInput, //
     @Req() req,
   ) {
-    console.log(req, 'CreateHealthInput');
     return await this.updateService.update({ req, createHealthInput });
   }
 }

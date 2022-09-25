@@ -25,16 +25,16 @@ export class HealthController {
     @Req() req: Request, //
   ) {
     const result = await this.healthService.find(query.page, query.limit);
-    let accessToken = '';
+    let Token = '';
     if (req.headers.cookie) {
-      accessToken = req.headers.cookie.split('refreshToken=')[1];
+      Token = req.headers.cookie.split('Token=')[1];
     } else {
       return { nickname: '', data: result, currentPage: query.page };
     }
-    if (accessToken === '') {
+    if (Token === '') {
       return { nickname: '', data: result, currentPage: query.page };
-    } else if (accessToken !== undefined) {
-      const checkToken = jwt.verify(accessToken, 'myRefreshkey');
+    } else if (Token !== undefined) {
+      const checkToken = jwt.verify(Token, 'key');
       return {
         nickname: checkToken['nickname'],
         data: result,

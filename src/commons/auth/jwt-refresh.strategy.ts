@@ -1,14 +1,14 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-jwt';
 
-export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
+export class JwtKeyStrategy extends PassportStrategy(Strategy, 'key') {
   constructor() {
     super({
       jwtFromRequest: (req) => {
         const cookies = req.headers.cookies;
-        if (cookies) return cookies.replace('refreshToken=', '');
+        if (cookies) return cookies.replace('Token=', '');
       },
-      secretOrKey: 'myRefreshkey',
+      secretOrKey: 'key',
     });
   }
 

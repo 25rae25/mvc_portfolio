@@ -24,29 +24,21 @@ export class UserController {
     return this.userService.create({ pwd: hashedPwd, userInfo });
   }
 
-  @Get('findId')
-  @Render('findId')
-  signup() {}
-
-  @Get('findPw')
-  @Render('findPw')
-  findPw() {}
-
   @Get('about')
   @Render('about')
   about(
     @Req() req: Request, //
   ) {
-    let accessToken = '';
+    let Token = '';
     if (req.headers.cookie) {
-      accessToken = req.headers.cookie.split('refreshToken=')[1];
+      Token = req.headers.cookie.split('Token=')[1];
     } else {
       return { nickname: '' };
     }
-    if (accessToken === '') {
+    if (Token === '') {
       return { nickname: '' };
-    } else if (accessToken !== undefined) {
-      const checkToken = jwt.verify(accessToken, 'myRefreshkey');
+    } else if (Token !== undefined) {
+      const checkToken = jwt.verify(Token, 'key');
       return { nickname: checkToken['nickname'] };
     } else {
       return { nickname: '' };
