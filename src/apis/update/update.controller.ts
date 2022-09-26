@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Put,
-  Render,
-  Req,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Put, Render, Req } from '@nestjs/common';
 import { CreateHealthInput } from '../health/dto/createHealth.input';
 import { UpdateService } from './update.service';
 

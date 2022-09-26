@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/write.css" />
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6dca3e9c71.js"
+      crossorigin="anonymous"
+    ></script>
     <title>정보 글쓰기</title>
   </head>
   <body>
@@ -18,7 +22,23 @@
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
         <div class="navi"><a href="/health">운동</a></div>
-        <div class="navi"><a href="/login">로그인</a></div>
+        <div class="loginId">
+          <% if(nickname){%>
+          <div class="id">
+            <span style="font-weight: bold"><%=nickname%></span>
+            님 환영합니다
+            <span
+              ><a href="/logout"
+                ><i
+                  class="fa-solid fa-right-from-bracket"
+                  style="padding-left: 10px"
+                ></i></a
+            ></span>
+          </div>
+          <% } else {%>
+          <div class="navi"><a href="/login">로그인</a></div>
+          <%}%>
+        </div>
       </div>
       <!--  navi_wrap  -->
     </div>

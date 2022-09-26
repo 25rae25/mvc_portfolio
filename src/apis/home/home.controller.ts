@@ -23,7 +23,7 @@ export class HomeController {
     if (Token === '') {
       return { nickname: '' };
     } else if (Token !== undefined) {
-      const checkToken = jwt.verify(Token, 'key');
+      const checkToken = jwt.verify(Token, process.env.KEY);
       return { nickname: checkToken['nickname'] };
     } else {
       return { nickname: '' };

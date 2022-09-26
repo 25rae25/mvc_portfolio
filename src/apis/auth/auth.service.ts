@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { User } from '../user/entities/user.entity';
 import { UserService } from '../user/user.service';
 import * as jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
 @Injectable()
 export class AuthService {
@@ -16,13 +17,12 @@ export class AuthService {
   ) {}
 
   token({ user, res, req }) {
-    const Token = this.jwtService.sign(
+    const token = this.jwtService.sign(
       { nickname: user.nickname },
-      { secret: 'key', expiresIn: '24h' },
+      { secret: process.env.KEY, expiresIn: '24h' },
     );
 
-    console.log(Token);
-    res.cookie('Token', Token);
+    res.cookie('Token', token);
   }
 
   async getUserInfo(req, res) {
@@ -46,7 +46,7 @@ export class AuthService {
   async logout({ req, res }) {
     const token = req.headers.cookie.replace('Token=', '');
     try {
-      jwt.verify(token, 'key');
+      jwt.verify(token, process.env.KEY);
       res.cookie('Token', '');
       res.redirect('http://localhost:3000/home');
       return '로그아웃 성공';

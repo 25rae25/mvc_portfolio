@@ -21,7 +21,22 @@
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
         <div class="navi"><a href="/health">운동</a></div>
-        <div class="navi"><a href="/login">로그인</a></div>
+        <div class="loginId">
+          <% if(nickname){%>
+          <div class="id">
+            <span style="font-weight: bold"><%=nickname%></span>
+            님 환영합니다
+            <span
+              ><a href="/logout"
+                ><i
+                  class="fa-solid fa-right-from-bracket"
+                  style="padding-left: 10px"
+                ></i></a
+            ></span>
+          </div>
+          <% } else {%>
+          <div class="navi"><a href="/login">로그인</a></div>
+          <%}%>
       </div>
       <!--  navi_wrap  -->
     </div>

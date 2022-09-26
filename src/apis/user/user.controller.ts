@@ -29,16 +29,16 @@ export class UserController {
   about(
     @Req() req: Request, //
   ) {
-    let Token = '';
+    let token = '';
     if (req.headers.cookie) {
-      Token = req.headers.cookie.split('Token=')[1];
+      token = req.headers.cookie.split('Token=')[1];
     } else {
       return { nickname: '' };
     }
-    if (Token === '') {
+    if (token === '') {
       return { nickname: '' };
-    } else if (Token !== undefined) {
-      const checkToken = jwt.verify(Token, 'key');
+    } else if (token !== undefined) {
+      const checkToken = jwt.verify(token, process.env.KEY);
       return { nickname: checkToken['nickname'] };
     } else {
       return { nickname: '' };

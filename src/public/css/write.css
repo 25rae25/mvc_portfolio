@@ -48,6 +48,15 @@ body {
   transform: scaleX(1);
 }
 
+.loginId {
+  margin-top: 2px;
+}
+
+.loginId span {
+  font-weight: bold;
+  padding-left: 10px;
+}
+
 /******  line_wrap  *******/
 .line_wrap {
   border-top: 2px solid #000;

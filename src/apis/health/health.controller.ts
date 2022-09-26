@@ -6,6 +6,7 @@ import {
   Query,
   Render,
   Req,
+  UnprocessableEntityException,
 } from '@nestjs/common';
 import { CreateHealthInput } from './dto/createHealth.input';
 import { HealthService } from './health.service';
@@ -25,16 +26,16 @@ export class HealthController {
     @Req() req: Request, //
   ) {
     const result = await this.healthService.find(query.page, query.limit);
-    let Token = '';
+    let token = '';
     if (req.headers.cookie) {
-      Token = req.headers.cookie.split('Token=')[1];
+      token = req.headers.cookie.split('Token=')[1];
     } else {
       return { nickname: '', data: result, currentPage: query.page };
     }
-    if (Token === '') {
+    if (token === '') {
       return { nickname: '', data: result, currentPage: query.page };
-    } else if (Token !== undefined) {
-      const checkToken = jwt.verify(Token, 'key');
+    } else if (token !== undefined) {
+      const checkToken = jwt.verify(token, process.env.KEY);
       return {
         nickname: checkToken['nickname'],
         data: result,
@@ -46,11 +47,26 @@ export class HealthController {
   }
 
   @Post('/health')
-  async button(@Body() createHealthInput: CreateHealthInput) {
+  async button(
+    @Body() createHealthInput: CreateHealthInput, //
+  ) {
     return await this.healthService.create(createHealthInput);
   }
 
   @Get('/write')
   @Render('write')
-  write() {}
+  write(
+    @Req() req: Request, //
+  ) {
+    console.log(req.headers.cookie, '111111111111111');
+    if (req.headers.cookie === undefined || req.headers.cookie === 'Token=') {
+      req.res.redirect('/login');
+    } else {
+      const checkToken = jwt.verify(
+        req.headers.cookie.split('Token=')[1],
+        process.env.KEY,
+      );
+      return { nickname: checkToken['nickname'] };
+    }
+  }
 }
