@@ -58,9 +58,25 @@ export class HealthController {
   write(
     @Req() req: Request, //
   ) {
-    console.log(req.headers.cookie, '111111111111111');
     if (req.headers.cookie === undefined || req.headers.cookie === 'Token=') {
       req.res.redirect('/login');
+    } else {
+      const checkToken = jwt.verify(
+        req.headers.cookie.split('Token=')[1],
+        process.env.KEY,
+      );
+      return { nickname: checkToken['nickname'] };
+    }
+  }
+
+  @Post('/write')
+  async loginUser(
+    @Body() data, //
+    @Req() req: Request,
+  ) {
+    if (req.headers.cookie === undefined || req.headers.cookie === 'Token=') {
+      throw new UnprocessableEntityException('로그인 후 이용가능 합니다.');
+      // req.res.redirect('/login');
     } else {
       const checkToken = jwt.verify(
         req.headers.cookie.split('Token=')[1],

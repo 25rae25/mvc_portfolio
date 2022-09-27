@@ -29,20 +29,18 @@
         <div class="loginId">
           <% if(nickname){%>
           <div class="id">
-            <span style="font-weight: bold"><%=nickname%></span>
+            <span><%=nickname%></span>
             님 환영합니다
             <span
               ><a href="/logout"
-                ><i
-                  class="fa-solid fa-right-from-bracket"
-                  style="padding-left: 10px"
-                ></i></a
+                ><i class="fa-solid fa-right-from-bracket"></i></a
             ></span>
           </div>
           <% } else {%>
           <div class="navi"><a href="/login">로그인</a></div>
           <%}%>
         </div>
+      </div>
       </div>
       <!--  navi_wrap  -->
     </div>
@@ -59,8 +57,7 @@
     <!--  choice_wrap  -->
 
     <div class="write_wrap">
-      <a href="/write">글쓰기</a>
-      <!-- <div class="write" id="getWrite">글쓰기</div> -->
+      <div class="write" id="getWrite">글쓰기</div>
     </div>
     <!--  write_wrap  -->
 

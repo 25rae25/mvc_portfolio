@@ -28,6 +28,14 @@
 .id {
   padding-top: 2px;
 }
+
+.loginId {
+}
+
+.loginId span {
+  font-weight: bold;
+  padding-left: 10px;
+}
 /*********  choice_wrap  *********/
 .choice_wrap {
   width: 100%;
@@ -60,7 +68,7 @@
   padding: 20px 0;
 }
 
-.write_wrap a {
+.write_wrap .write {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +82,7 @@
   cursor: pointer;
 }
 
-.write_wrap a:hover {
+.write_wrap .write:hover {
   background-color: #fff;
   color: #000;
   border: 2px solid #000;

@@ -18,7 +18,9 @@ body {
 
 .id {
   padding-top: 2px;
+  padding-left: 2px;
 }
+
 /******  navi_wrapper  *******/
 .navi_wrapper {
   display: flex;

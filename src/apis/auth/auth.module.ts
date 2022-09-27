@@ -1,7 +1,7 @@
 import { CacheModule, Module } from '@nestjs/common';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { JwtKeyStrategy } from 'src/commons/auth/jwt-refresh.strategy';
+import { JwtKeyStrategy } from 'src/commons/auth/jwt-key.strategy';
 import { JwtGoogleStrategy } from 'src/commons/auth/jwt-social-google.strategy';
 import { JwtKaKaoStrategy } from 'src/commons/auth/jwt-social-kakao.strategy';
 import { JwtNaverStrategy } from 'src/commons/auth/jwt-social-naver.strategy';

@@ -91,6 +91,5 @@ export class AuthController {
     @Res() res: Response,
   ) {
     const result = await this.authService.logout({ req, res });
-    console.log(result);
   }
 }

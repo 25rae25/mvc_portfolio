@@ -51,7 +51,7 @@ export class AuthService {
       res.redirect('http://localhost:3000/home');
       return '로그아웃 성공';
     } catch {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('로그아웃 실패');
     }
   }
 }
