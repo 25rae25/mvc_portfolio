@@ -25,6 +25,7 @@ export class HealthController {
     @Query() query: { page: string; limit: string }, //
     @Req() req: Request, //
   ) {
+    console.log(query.limit, query.page, '============');
     const result = await this.healthService.find(query.page, query.limit);
     let token = '';
     if (req.headers.cookie) {
