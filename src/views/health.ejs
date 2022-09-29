@@ -26,19 +26,7 @@
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
         <div class="navi"><a href="/health">운동</a></div>
-        <div class="loginId">
-          <% if(nickname){%>
-          <div class="id">
-            <span><%=nickname%></span>
-            님 환영합니다
-            <span
-              ><a href="/logout"
-                ><i class="fa-solid fa-right-from-bracket"></i></a
-            ></span>
-          </div>
-          <% } else {%>
-          <div class="navi"><a href="/login">로그인</a></div>
-          <%}%>
+        <div class="loginId">         
         </div>
       </div>
       </div>
@@ -76,7 +64,7 @@
             </tr>
           </thead>
           <tbody>
-            <% data.forEach(el => { %>
+            <% article.forEach(el => { %>
             <tr>
               <td><%=el.id%></td>
               <td><%=el.sport%></td>
@@ -105,43 +93,30 @@
           </a>
 
           <div class="pageNum" id="pageNum">
-            <% ['1','2','3','4','5'].forEach(pageNum => { %>
-            <div class="pageBtn<%= currentPage === pageNum ? ' actived' : ''%>">
-              <a
-                href="/health?page=<%= pageNum%>&limit=10"
-                id="pageButton1"
-                class=""
-                ><%= pageNum %></a
-              >
-            </div>
-            <% }) %>
+            <% if(page > 5) { %>
+              <% for(let i = 0 ; i < 5 ; i++){ %>
+                <div >
+                  <a
+                    href="/health?page="
+                    id="pageButton1"
+                    class=""
+                    ><%= i+1 %></a
+                  >
+                </div>
+                <% } %>
+            <% } else { %>
+              <% for(let i = 0 ; i < page ; i++){ %>
+                <div >
+                  <a
+                    href="/health?page=<%= i + 1%>"
+                    id="pageButton1"
+                    class=""
+                    ><%= i+1 %></a
+                  >
+                </div>
+                <% } %>
+            <% } %>
           </div>
-
-          <!-- <div class="pageNum" id="pageNum">
-            <div class="pageBtn1 actived">
-              <a href="/health?page=1&limit=10" id="pageButton1" class="">1</a>
-            </div>
-
-            <div class="pageBtn2">
-              <a href="/health?page=2&limit=10" id="pageButton2" class="">2</a>
-            </div>
-
-            <div class="pageBtn3">
-              <a href="/health?page=3&limit=10" id="pageButton3" class="">3</a>
-            </div>
-
-            <div class="pageBtn4">
-              <a href="/health?page=4&limit=10" id="pageButton4" class="">4</a>
-            </div>
-
-            <div class="pageBtn5">
-              <a href="/health?page=5&limit=10" id="pageButton5" class="">5</a>
-            </div>
-          </div> -->
-          <!-- 
-          <a href="" id="right" class="right">
-            <i class="arrow fa-solid fa-angle-right"></i>
-          </a> -->
 
           <a href="" id="rightEnd" class="rightEnd">
             <i class="arrow fa-solid fa-angles-right"></i>

@@ -9,6 +9,24 @@ export class HealthService {
     @InjectRepository(Health)
     private readonly healthRepository: Repository<Health>, //
   ) {}
+  ///////////////////////
+  async count() {
+    return await this.healthRepository.count();
+  }
+
+  async findArticle({ getNum }) {
+    if (getNum !== 1) {
+      getNum = getNum * 5 * ((getNum - 2) * 5 + 1) + 1;
+    }
+    console.log(getNum);
+    return await this.healthRepository.find({
+      take: 10,
+      // skip: getNum,
+      order: { id: 'DESC' },
+    });
+  }
+
+  ///////////////////////
   async find(page: string, limit: string) {
     const parsedPage = parseInt(page);
     const parsedLimit = parseInt(limit);
