@@ -2,24 +2,26 @@ version: '3.7'
 
 services:
   sports-backend:
-    image: asia.gcr.io/sports-364006/sports-backend:0.1
+    image: asia.gcr.io/sports-364006/sports-backend:1.9
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - ./.env
     volumes:
       - ./src:/myfolder/src
     ports:
       - 3000:3000
 
-  sports-database:
-    image: mysql:latest
-    environment:
-      MYSQL_DATABASE: 'sports'
-      MYSQL_ROOT_PASSWORD: '12345678'
-    ports:
-      - 3306:3306
+  # sports-database:
+  #   image: mysql:latest
+  #   environment:
+  #     MYSQL_DATABASE: 'sports'
+  #     MYSQL_ROOT_PASSWORD: 'root'
+  #   ports:
+  #     - 3306:3306
 
   sports-redis:
-    image: redis:latest
+    image: 10.28.112.3:latest
     ports:
       - 6379:6379
