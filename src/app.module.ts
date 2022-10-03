@@ -21,9 +21,9 @@ import { AppService } from './app.service';
     UserModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '34.64.189.105', //sql ip번호 & DNS A 랑 맞추기
+      host: '10.69.16.5', //sql ip번호 & DNS A 랑 맞추기
       port: 3306,
-      username: 'sports',
+      username: 'root',
       password: 'root',
       database: 'sports',
       entities: [__dirname + '/apis/**/*.entity.*'],
@@ -32,7 +32,7 @@ import { AppService } from './app.service';
     }),
     CacheModule.register<RedisClientOptions>({
       store: redisStore,
-      url: 'redis://10.28.112.3:6379',
+      url: 'redis://10.69.17.3:6379',
       isGlobal: true,
     }),
   ],

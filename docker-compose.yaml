@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   sports-backend:
-    image: asia.gcr.io/sports-364006/sports-backend:1.9
+    image: asia.gcr.io/togethersports/sports-backend:2.8
     build:
       context: .
       dockerfile: Dockerfile
@@ -21,7 +21,7 @@ services:
   #   ports:
   #     - 3306:3306
 
-  sports-redis:
-    image: 10.28.112.3:latest
-    ports:
-      - 6379:6379
+  # sports-redis:
+  #   image: 10.28.112.11:latest
+  #   ports:
+  #     - 6379:6379
