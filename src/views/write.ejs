@@ -17,7 +17,7 @@
   <body>
     <div class="navi_wrapper">
       <div class="logo fk">
-        <a href="/home">TogetherSports</a>
+        <a href="/">TogetherSports</a>
       </div>
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
@@ -87,8 +87,10 @@
           <textarea name="" id="content" cols="30" rows="10"></textarea>
         </div>
         <div class="button_wrap">
-          <button id="enroll" type="button" itemid="getCheck">등록하기</button>
-          <button id="cancel" type="button" onclick="">취소하기</button>
+          <button id="enroll" type="button" onclick="add()">등록하기</button>
+          <button id="cancel" type="button" onclick="cancelWrite()">
+            취소하기
+          </button>
         </div>
       </form>
     </div>
@@ -99,6 +101,7 @@
     </footer>
 
     <!-- 자바 스크립트 연결 -->
-    <script type="text/javascript" src="/js/health.js"></script>
+    <script src="/js/health.js"></script>
+    <script src="/js/cancel.js"></script>
   </body>
 </html>

@@ -13,7 +13,7 @@ document.getElementById('loginBtn').addEventListener('click', () => {
       pwd: getPwd,
     })
     .then(function (response) {
-      window.location = '/home';
+      window.location = '/';
     })
     .catch(function (error) {
       if (error.response.data) {

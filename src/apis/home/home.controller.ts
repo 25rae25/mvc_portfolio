@@ -3,7 +3,7 @@ import * as jwt from 'jsonwebtoken';
 import { HomeService } from './home.service';
 import { Request } from 'express';
 
-@Controller('home')
+@Controller('')
 export class HomeController {
   constructor(
     private readonly homeService: HomeService, //

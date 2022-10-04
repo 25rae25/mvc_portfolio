@@ -40,7 +40,7 @@ export class AuthService {
     }
 
     this.token({ user, res, req });
-    res.redirect('http://localhost:3000/home');
+    res.redirect('/');
   }
 
   async logout({ req, res }) {
@@ -48,7 +48,7 @@ export class AuthService {
     try {
       jwt.verify(token, process.env.KEY);
       res.cookie('Token', '');
-      res.redirect('http://localhost:3000/home');
+      res.redirect('/');
       return '로그아웃 성공';
     } catch {
       throw new UnauthorizedException('로그아웃 실패');
