@@ -26,7 +26,16 @@
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
         <div class="navi"><a href="/health">운동</a></div>
-        <div class="loginId">         
+        <div class="loginId">
+          <% if(nickname){%>
+          <span class="loging"><%=nickname%>님 환영합니다.</span>
+          <span class="logout"
+            ><a href="/logout"
+              ><i class="fa-solid fa-right-from-bracket"></i></a
+          ></span>
+          <%} else {%>
+          <li><a href="/login">로그인</a></li>
+          <%}%>
         </div>
       </div>
       </div>
@@ -34,15 +43,7 @@
     </div>
     <!--  navi_wrapper  -->
 
-    <div class="choice_wrap">
-      <div class="choice">
-        <a href="/health" class="active">축구</a>
-        <a href="/baseketball">농구</a>
-        <a href="/tennis">테니스</a>
-        <a href="/baseball">야구</a>
-      </div>
-    </div>
-    <!--  choice_wrap  -->
+    <div class="line_wrap">운동정보</div>
 
     <div class="write_wrap">
       <div class="write" id="getWrite">글쓰기</div>
@@ -64,7 +65,7 @@
             </tr>
           </thead>
           <tbody>
-            <% article.forEach(el => { %>
+            <% page.forEach(el => { %>
             <tr>
               <td><%=el.id%></td>
               <td><%=el.sport%></td>
@@ -84,41 +85,43 @@
     <div class="page_wrap">
       <div class="paging">
         <div class="ctrlBack">
-          <a href="/health" id="leftStart" class="leftStart">
+          <a href="/health?id=1" id="leftStart" class="leftStart">
             <i class="arrow fa-solid fa-angles-left"></i>
           </a>
 
-          <a href="" id="left" class="right">
-            <i class="arrow fa-solid fa-angle-left"></i>
-          </a>
+          <% if( Number(currentPage) <= 1) { %>
+            <a href="/health?id=<%= 1 %>" id="left" class="right">
+              <i class="arrow fa-solid fa-angle-left"></i>
+            </a>
+          <% } else { %>
+            <a href="/health?id=<%=  Number(currentPage) - 1 %>" id="left" class="right">
+              <i class="arrow fa-solid fa-angle-left"></i>
+            </a>
+          <% } %>
+         
 
           <div class="pageNum" id="pageNum">
-            <% if(page > 5) { %>
-              <% for(let i = 0 ; i < 5 ; i++){ %>
-                <div >
-                  <a
-                    href="/health?page="
-                    id="pageButton1"
-                    class=""
-                    ><%= i+1 %></a
-                  >
-                </div>
-                <% } %>
-            <% } else { %>
-              <% for(let i = 0 ; i < page ; i++){ %>
-                <div >
-                  <a
-                    href="/health?page=<%= i + 1%>"
-                    id="pageButton1"
-                    class=""
-                    ><%= i+1 %></a
-                  >
-                </div>
-                <% } %>
+          <% if(pageCount >= 5 ) { %>
+            <% for ( let i = 0 ; i < 5 ; i++) { %>
+              <a class="pageBtn" href="/health?id=<%= i+1 %>"><%= i + 1 %></a>
             <% } %>
+          <% } else { %>
+            <% for ( let i = 0 ; i < pageCount ; i++) { %>
+              <a class="pageBtn" href="/health?id=<%= i+1 %>"><%= i + 1 %></a>
+            <% } %>
+          <% } %>
           </div>
+          <% if( Number(currentPage) >= pageCount) { %>
+            <a href="/health?id=<%= pageCount %>" id="right" class="right">
+              <i class="arrow fa-solid fa-angle-right"></i>
+            </a>
+          <% } else { %>
+            <a href="/health?id=<%= Number(currentPage) + 1 %>" id="right" class="right">
+              <i class="arrow fa-solid fa-angle-right"></i>
+            </a>
+          <% } %>
 
-          <a href="" id="rightEnd" class="rightEnd">
+          <a href="/health?id=<%= pageCount %>" id="rightEnd" class="rightEnd">
             <i class="arrow fa-solid fa-angles-right"></i>
           </a>
         </div>
@@ -133,3 +136,4 @@
 
 <script src="/js/health.js"></script>
 <script src="/js/write.js"></script>
+<script src="/js/page.js"></script>

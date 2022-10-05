@@ -9,41 +9,19 @@ export class HealthService {
     @InjectRepository(Health)
     private readonly healthRepository: Repository<Health>, //
   ) {}
-  ///////////////////////
+
   async count() {
     return await this.healthRepository.count();
   }
 
-  async findArticle({ getNum }) {
-    if (getNum !== 1) {
-      getNum = getNum * 5 * ((getNum - 2) * 5 + 1) + 1;
-    }
-    console.log(getNum);
+  async findPage({ page }) {
     return await this.healthRepository.find({
-      take: 10,
-      // skip: getNum,
-      order: { id: 'DESC' },
-    });
-  }
-
-  ///////////////////////
-  async find(page: string, limit: string) {
-    const parsedPage = parseInt(page);
-    const parsedLimit = parseInt(limit);
-    const count = await this.healthRepository.count();
-    // const maxPage = Math.ceil(count / parsedLimit);
-
-    const result = await this.healthRepository.find({
       order: {
-        id: 'desc',
+        id: 'DESC',
       },
-      // skip: (parsedPage - 1) * parsedLimit,
-      // take: parsedLimit,
+      skip: (Number(page ?? 1) - 1) * 10,
+      take: 10,
     });
-
-    //   // const count = await this.healthRepository.count()
-    //   // return {result, count}
-    return result;
   }
 
   async findOne(id) {

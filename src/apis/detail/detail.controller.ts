@@ -24,23 +24,21 @@ export class DetailController {
     @Req() req: Request,
   ) {
     const result = await this.detailService.findOne(id);
+    let token = '';
 
-    // let token = '';
-    // if (req.headers.cookie) {
-    //   token = req.headers.cookie.split('Token=')[1];
-    // } else {
-    //   return { nickname: '' };
-    // }
-    // if (token === '') {
-    //   return { nickname: '' };
-    // } else if (token !== undefined) {
-    //   const checkToken = jwt.verify(token, process.env.KEY);
-    //   return { nickname: checkToken['nickname'] };
-    // } else {
-    //   return { nickname: '' };
-    // }
-
-    return { data: result };
+    if (req.headers.cookie) {
+      token = req.headers.cookie.split('Token=')[1];
+    } else {
+      return { nickname: '', data: result };
+    }
+    if (token === '') {
+      return { nickname: '', data: result };
+    } else if (token !== undefined) {
+      const checkToken = jwt.verify(token, process.env.KEY);
+      return { nickname: checkToken['nickname'], data: result };
+    } else {
+      return { nickname: '', data: result };
+    }
   }
 
   @Delete('/')

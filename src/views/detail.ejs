@@ -8,15 +8,19 @@
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/detail.css" />
     <script
+      src="https://kit.fontawesome.com/6dca3e9c71.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
       src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
       defer
     ></script>
-    <title>운동 정보</title>
+    <title>운동 상세 정보</title>
   </head>
   <body>
     <div class="navi_wrapper">
       <div class="logo fk">
-        <a href="/home">TogetherSports</a>
+        <a href="/">TogetherSports</a>
       </div>
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
@@ -37,12 +41,14 @@
           <% } else {%>
           <div class="navi"><a href="/login">로그인</a></div>
           <%}%>
+        </div>
       </div>
       <!--  navi_wrap  -->
     </div>
     <!--  navi_wrapper  -->
 
     <div class="line_wrap">운동정보</div>
+
     <section class="section">
       <div class="title">
         <h2 id="title"><%=data.title %></h2>

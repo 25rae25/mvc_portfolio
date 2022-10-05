@@ -22,41 +22,25 @@ export class HealthController {
   @Get('/health')
   @Render('health')
   async board(
-    @Query() query: { page: string; limit: string }, //
+    @Query() query: string, //
     @Req() req: Request, //
   ) {
-    // console.log(query.page, '===========');
+    let token, nickname;
+    if (req.headers.cookie) {
+      token = req.headers.cookie.split('token=')[1];
+      nickname = jwt.verify(token, process.env.KEY)['nickname'];
+    } else {
+      nickname = '';
+    }
 
     const count = await this.healthService.count();
-
-    const page = Math.ceil(Number(count) / 10);
-
-    const getNum = Number(count) - (Number(query.page) - 1) * 10;
-
-    const article = await this.healthService.findArticle({
-      getNum: Number(query.page),
-    });
-
-    return { page, article };
-    // const result = await this.healthService.find(query.page, query.limit);
-    // let token = '';
-    // if (req.headers.cookie) {
-    //   token = req.headers.cookie.split('Token=')[1];
-    // } else {
-    //   return { nickname: '', data: result, currentPage: query.page };
-    // }
-    // if (token === ''') {
-    //   return { nickname: '', data: result, currentPage: query.page };
-    // } else if (token !== undefined) {
-    //   const checkToken = jwt.verify(token, process.env.KEY);
-    //   return {
-    //     nickname: checkToken['nickname'],
-    //     data: result,
-    //     currentPage: query.page,
-    //   };
-    // } else {
-    //   return { nickname: '', data: result, currentPage: query.page };
-    // }
+    const page = await this.healthService.findPage({ page: query['id'] });
+    return {
+      pageCount: Math.ceil(count / 10),
+      nickname,
+      page,
+      currentPage: query['id'],
+    };
   }
 
   @Post('/health')
