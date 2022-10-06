@@ -115,7 +115,3 @@ a:active {
 .navi:hover:after {
   transform: scaleX(1);
 }
-
-.active {
-  color: #fff !important;
-}

@@ -25,19 +25,21 @@
       </div>
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
-        <div class="navi"><a href="/health">운동</a></div>
+        <div class="navi"><a href="/health?id=1">운동</a></div>
         <div class="loginId">
           <% if(nickname){%>
-          <span class="loging"><%=nickname%>님 환영합니다.</span>
-          <span class="logout"
-            ><a href="/logout"
-              ><i class="fa-solid fa-right-from-bracket"></i></a
-          ></span>
-          <%} else {%>
-          <li><a href="/login">로그인</a></li>
+          <div class="id">
+            <span><%=nickname%></span>
+            님 환영합니다
+            <span
+              ><a href="/logout"
+                ><i class="fa-solid fa-right-from-bracket"></i></a
+            ></span>
+          </div>
+          <% } else {%>
+          <div class="navi"><a href="/login">로그인</a></div>
           <%}%>
         </div>
-      </div>
       </div>
       <!--  navi_wrap  -->
     </div>
@@ -88,37 +90,48 @@
           <a href="/health?id=1" id="leftStart" class="leftStart">
             <i class="arrow fa-solid fa-angles-left"></i>
           </a>
-
           <% if( Number(currentPage) <= 1) { %>
-            <a href="/health?id=<%= 1 %>" id="left" class="right">
-              <i class="arrow fa-solid fa-angle-left"></i>
-            </a>
+          <a href="/health?id=<%= 1 %>" id="left" class="right">
+            <i class="arrow fa-solid fa-angle-left"></i>
+          </a>
           <% } else { %>
-            <a href="/health?id=<%=  Number(currentPage) - 1 %>" id="left" class="right">
-              <i class="arrow fa-solid fa-angle-left"></i>
-            </a>
+          <a
+            href="/health?id=<%=  Number(currentPage) - 1 %>"
+            id="left"
+            class="right"
+          >
+            <i class="arrow fa-solid fa-angle-left"></i>
+          </a>
           <% } %>
-         
 
           <div class="pageNum" id="pageNum">
-          <% if(pageCount >= 5 ) { %>
-            <% for ( let i = 0 ; i < 5 ; i++) { %>
-              <a class="pageBtn" href="/health?id=<%= i+1 %>"><%= i + 1 %></a>
-            <% } %>
-          <% } else { %>
-            <% for ( let i = 0 ; i < pageCount ; i++) { %>
-              <a class="pageBtn" href="/health?id=<%= i+1 %>"><%= i + 1 %></a>
-            <% } %>
-          <% } %>
+            <% if(pageCount >= 5 ) { %> <% for ( let i = 0 ; i < 5 ; i++) { %>
+            <a
+              class="pageBtn <%= Number(currentPage) === i + 1 ? 'active':'' %>"
+              href="/health?id=<%= i+1 %>"
+              ><%= i + 1 %></a
+            >
+            <% } %> <% } else { %> <% for ( let i = 0 ; i < pageCount ; i++) {
+            %>
+            <a
+              class="pageBtn <%= Number(currentPage) === i + 1 ? 'active':'' %>"
+              href="/health?id=<%= i+1 %>"
+              ><%= i + 1 %></a
+            >
+            <% } %> <% } %>
           </div>
           <% if( Number(currentPage) >= pageCount) { %>
-            <a href="/health?id=<%= pageCount %>" id="right" class="right">
-              <i class="arrow fa-solid fa-angle-right"></i>
-            </a>
+          <a href="/health?id=<%= pageCount %>" id="right" class="right">
+            <i class="arrow fa-solid fa-angle-right"></i>
+          </a>
           <% } else { %>
-            <a href="/health?id=<%= Number(currentPage) + 1 %>" id="right" class="right">
-              <i class="arrow fa-solid fa-angle-right"></i>
-            </a>
+          <a
+            href="/health?id=<%= Number(currentPage) + 1 %>"
+            id="right"
+            class="right"
+          >
+            <i class="arrow fa-solid fa-angle-right"></i>
+          </a>
           <% } %>
 
           <a href="/health?id=<%= pageCount %>" id="rightEnd" class="rightEnd">

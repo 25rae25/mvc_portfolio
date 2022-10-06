@@ -4,6 +4,12 @@
 .fk {
   font-family: 'Fredoka One', cursive;
 }
+
+.active {
+  border: 1px solid #000;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
 /*********  navi_wrapper  *********/
 .navi_wrapper {
   display: flex;
@@ -38,7 +44,7 @@
 }
 /******  line_wrap  *******/
 .line_wrap {
-  border-top: 2px solid #275281;
+  border-top: 2px solid #000;
   border-bottom: 2px solid #000;
   text-align: center;
   padding: 20px 0;

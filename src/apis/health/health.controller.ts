@@ -27,14 +27,17 @@ export class HealthController {
   ) {
     let token, nickname;
     if (req.headers.cookie) {
-      token = req.headers.cookie.split('token=')[1];
+      token = req.headers.cookie.split('Token=')[1];
       nickname = jwt.verify(token, process.env.KEY)['nickname'];
     } else {
       nickname = '';
     }
 
+    console.log(query);
+
     const count = await this.healthService.count();
     const page = await this.healthService.findPage({ page: query['id'] });
+
     return {
       pageCount: Math.ceil(count / 10),
       nickname,
