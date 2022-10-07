@@ -1,5 +1,6 @@
-function add() {
+document.getElementById('add').addEventListener('click', () => {
   const title = document.getElementById('title').value;
+  const nickname = document.getElementById('nickname').value;
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const phone = document.getElementById('phone').value;
@@ -11,31 +12,20 @@ function add() {
   const sports = document.getElementById('sports');
   const sport = sports.options[sports.selectedIndex].value;
 
-  axios
-    .post('/health', {
-      name,
-      title,
-      email,
-      phone,
-      content,
-      position,
-      time,
-      address,
-      sport,
-    })
-    .then((res) => {
-      div.innerText = res.data.name;
-      div.innerText = res.data.title;
-      div.innerText = res.data.email;
-      div.innerText = res.data.phone;
-      div.innerText = res.data.content;
-      div.innerText = res.data.position;
-      div.innerText = res.data.time;
-      div.innerText = res.data.address;
-      div.innerText = res.data.sport;
-    });
+  axios.post('/health', {
+    name,
+    title,
+    nickname,
+    email,
+    phone,
+    content,
+    position,
+    time,
+    address,
+    sport,
+  });
 
   fetch('/health').then(function () {
     window.location = '/health';
   });
-}
+});

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/write.css" />
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script
       src="https://kit.fontawesome.com/6dca3e9c71.js"
       crossorigin="anonymous"
@@ -50,6 +50,10 @@
           <input id="title" type="text" />
         </div>
         <div class="write">
+          <label for="nickname">작성자</label>
+          <input id="nickname" readonly type="text" value="<%=nickname%>" />
+        </div>
+        <div class="write">
           <label for="name">팀명</label>
           <input id="name" type="text" />
         </div>
@@ -87,7 +91,7 @@
           <textarea name="" id="content" cols="30" rows="10"></textarea>
         </div>
         <div class="button_wrap">
-          <button id="enroll" type="button" onclick="add()">등록하기</button>
+          <button id="add" type="button">등록하기</button>
           <button id="cancel" type="button" onclick="cancelWrite()">
             취소하기
           </button>

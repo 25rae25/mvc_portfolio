@@ -28,7 +28,7 @@
         <div class="loginId">
           <% if(nickname){%>
           <div class="id">
-            <span style="font-weight: bold"><%=nickname%></span>
+            <span style="font-weight: bold" id="name1"><%=nickname%></span>
             님 환영합니다
             <span
               ><a href="/logout"
@@ -68,7 +68,7 @@
               <td>팀명</td>
               <td id="name"><%=data.name %></td>
               <td>글쓴이</td>
-              <td>niceyoungrae</td>
+              <td id="name2"><%=data.nickname %></td>
             </tr>
             <tr>
               <td>포지션</td>
@@ -92,7 +92,7 @@
       </div>
       <div class="listBtn">
         <button type="button" id="getList">목록</button>
-        <button type="button" id="" onclick="update()">
+        <button type="button" id="">
           <a href="/update/<%=data.id%>">수정하기</a>
         </button>
         <button type="button" id="getDelete">삭제하기</button>

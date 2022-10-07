@@ -18,6 +18,9 @@ export class Health {
   name: string;
 
   @Column()
+  nickname: string;
+
+  @Column()
   phone: string;
 
   @Column()

@@ -27,8 +27,12 @@ export class HealthController {
   ) {
     let token, nickname;
     if (req.headers.cookie) {
-      token = req.headers.cookie.split('Token=')[1];
-      nickname = jwt.verify(token, process.env.KEY)['nickname'];
+      try {
+        token = req.headers.cookie.split('Token=')[1];
+        nickname = jwt.verify(token, process.env.KEY)['nickname'];
+      } catch {
+        nickname = '';
+      }
     } else {
       nickname = '';
     }

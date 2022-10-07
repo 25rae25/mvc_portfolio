@@ -115,3 +115,8 @@ a:active {
 .navi:hover:after {
   transform: scaleX(1);
 }
+
+.dt {
+  background-color: #eee;
+  border: none;
+}

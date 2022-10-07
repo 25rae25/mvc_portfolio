@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/write.css" />
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6dca3e9c71.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
     <title>정보수정</title>
   </head>
   <body>
@@ -18,7 +25,20 @@
       <div class="navi_wrap">
         <div class="navi"><a href="/about">소개</a></div>
         <div class="navi"><a href="/health?id=1">운동</a></div>
-        <div class="navi"><a href="/login">로그인</a></div>
+        <div class="loginId">
+          <% if(nickname){%>
+          <div class="id">
+            <span id="name1"><%=nickname%></span>
+            님 환영합니다
+            <span
+              ><a href="/logout"
+                ><i class="fa-solid fa-right-from-bracket"></i></a
+            ></span>
+          </div>
+          <% } else {%>
+          <div class="navi"><a href="/login">로그인</a></div>
+          <%}%>
+        </div>
       </div>
       <!--  navi_wrap  -->
     </div>
@@ -32,10 +52,26 @@
           <label for="title">제목</label>
           <input
             id="title"
-            class="title"
+            class="dt"
             readonly
             value="<%=data.title %>"
             type="text"
+          />
+        </div>
+        <input
+          type="text"
+          value="<%=data.id%>"
+          id="idid"
+          style="display: none"
+        />
+        <div class="write">
+          <label for="nickname">작성자</label>
+          <input
+            id="name2"
+            class="dt"
+            readonly
+            type="text"
+            value="<%=nickname%>"
           />
         </div>
         <div class="write">
@@ -83,7 +119,7 @@
           >
         </div>
         <div class="button_wrap">
-          <button id="aaa" type="button" onclick="modify()">수정하기</button>
+          <button id="getUpdate" type="button">수정하기</button>
           <button id="cancel" type="button" onclick="">취소하기</button>
         </div>
       </form>
