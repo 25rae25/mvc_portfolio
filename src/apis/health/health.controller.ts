@@ -37,8 +37,6 @@ export class HealthController {
       nickname = '';
     }
 
-    console.log(query);
-
     const count = await this.healthService.count();
     const page = await this.healthService.findPage({ page: query['id'] });
 

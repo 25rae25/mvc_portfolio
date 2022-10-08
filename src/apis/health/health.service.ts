@@ -15,7 +15,6 @@ export class HealthService {
   }
 
   async findPage({ page }) {
-    console.log(page, '어쩔수없지');
     return await this.healthRepository.find({
       order: {
         id: 'DESC',

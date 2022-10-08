@@ -26,6 +26,6 @@ document.getElementById('add').addEventListener('click', () => {
   });
 
   fetch('/health').then(function () {
-    window.location = '/health';
+    window.location = '/health?id=1';
   });
 });

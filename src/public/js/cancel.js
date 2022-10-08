@@ -1,4 +1,4 @@
 function cancelWrite() {
-  alert('글쓰기를 취소했습니다');
+  alert('회원가입을 취소했습니다');
   window.location.href = '/health';
 }

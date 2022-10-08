@@ -50,7 +50,7 @@ body {
 
 /******  line_wrap  *******/
 .line_wrap {
-  border-top: 2px solid #275281;
+  border-top: 2px solid #000;
   border-bottom: 2px solid #000;
   text-align: center;
   padding: 20px 0;
