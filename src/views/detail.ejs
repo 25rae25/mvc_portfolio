@@ -47,7 +47,7 @@
     </div>
     <!--  navi_wrapper  -->
 
-    <div class="line_wrap">운동정보</div>
+    <div class="line_wrap">운동 상세 정보</div>
 
     <section class="section">
       <div class="title">
@@ -92,10 +92,8 @@
       </div>
       <div class="listBtn">
         <button type="button" id="getList">목록</button>
-        <button type="button" id="aaa">
-          <!-- <a href="/update/<%=data.id%>">수정하기</a> -->
-          수정하기
-        </button>
+        <!-- <button type="button" id="aaa">수정하기</button> -->
+        <button onclick="checkUser()"">수정하기</button>
         <button type="button" id="getDelete">삭제하기</button>
       </div>
     </section>
@@ -113,4 +111,3 @@
 
 <script src="/js/detail.js"></script>
 <script src="/js/delete.js"></script>
-<script src="/js/update.js"></script>

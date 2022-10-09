@@ -14,7 +14,7 @@ document.getElementById('getDelete').addEventListener('click', () => {
         },
       })
       .then(function () {
-        window.location = '/health';
+        window.location = '/health?id=1';
       });
   } else {
     alert('글쓴이만 삭제 할 수 있습니다');

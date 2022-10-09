@@ -37,8 +37,7 @@ export class UpdateController {
   @Put('/')
   async update(
     @Body() createHealthInput: CreateHealthInput, //
-    @Req() req,
   ) {
-    return await this.updateService.update({ req, createHealthInput });
+    return await this.updateService.update({ createHealthInput });
   }
 }
