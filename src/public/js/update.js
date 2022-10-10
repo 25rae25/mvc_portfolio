@@ -35,6 +35,6 @@ document.getElementById('getUpdate').addEventListener('click', () => {
       sport,
     })
     .then(function () {
-      window.location = '/health';
+      window.location = '/health?id=1';
     });
 });

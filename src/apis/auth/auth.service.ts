@@ -3,7 +3,6 @@ import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../user/entities/user.entity';
-import { UserService } from '../user/user.service';
 import * as jwt from 'jsonwebtoken';
 import 'dotenv/config';
 
@@ -13,7 +12,6 @@ export class AuthService {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
     private readonly jwtService: JwtService,
-    private readonly userService: UserService,
   ) {}
 
   token({ user, res, req }) {

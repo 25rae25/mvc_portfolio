@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   sports-backend:
-    image: asia.gcr.io/togethersports-364704/sports-backend:2.1
+    image: asia.gcr.io/togethersports-364704/sports-backend:2.4
     build:
       context: .
       dockerfile: Dockerfile

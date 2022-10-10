@@ -26,6 +26,13 @@ export class AuthController {
   @Render('login')
   loginId() {}
 
+  @Post('/checkId')
+  async checkId(@Body() data: any) {
+    const user = await this.userService.findOne({ data: data.nickname });
+
+    return user ? false : true;
+  }
+
   @UseGuards()
   @Post('/login')
   async login(
