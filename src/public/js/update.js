@@ -5,7 +5,7 @@ const name2 = document.getElementById('name2').value;
 
 if (name1 !== name2 || !name1) {
   alert('유저 정보가 올바르지 않습니다.');
-  window.location = '/';
+  window.location = '/health?id=1';
 }
 
 document.getElementById('getUpdate').addEventListener('click', () => {
