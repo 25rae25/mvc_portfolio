@@ -28,7 +28,10 @@ function checkId() {
         alert('사용가능한 아이디입니다.');
         document.getElementById('signupBtn').style.color = 'black';
         document.getElementById('signupBtn').removeAttribute('disabled');
-      } else {
+      } else if (res.data === ' ') {
+        alert('아이디를 입력해주세요.');
+      }
+      {
         alert('이미 존재하는 아이디입니다.');
       }
     });
