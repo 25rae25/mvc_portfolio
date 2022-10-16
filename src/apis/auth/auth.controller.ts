@@ -30,9 +30,8 @@ export class AuthController {
   async checkId(
     @Body() data: any, //
   ) {
-    console.log(data);
+    if (data.nickname === '') return false;
     const user = await this.userService.findOne({ data: data.nickname });
-    console.log(user, '======');
     return user ? false : true;
   }
 
