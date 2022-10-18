@@ -61,7 +61,6 @@ export class AuthController {
       req,
     });
 
-    // const accessToken = this.authService.getAccessToken({ user });
     res.send('Token');
     return true;
   }

@@ -21,6 +21,5 @@ export class DetailService {
   async delete(data) {
     const result = await this.detailRepository.delete({ id: data.id });
     return result;
-    // return result.affected ? true : false;
   }
 }

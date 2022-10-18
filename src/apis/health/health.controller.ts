@@ -78,7 +78,6 @@ export class HealthController {
   ) {
     if (req.headers.cookie === undefined || req.headers.cookie === 'Token=') {
       throw new UnprocessableEntityException('로그인 후 이용가능 합니다.');
-      // req.res.redirect('/login');
     } else {
       const checkToken = jwt.verify(
         req.headers.cookie.split('Token=')[1],
