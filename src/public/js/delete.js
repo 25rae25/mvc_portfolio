@@ -3,9 +3,6 @@ document.getElementById('getDelete').addEventListener('click', () => {
   const name1 = document.getElementById('name1').innerText;
   const name2 = document.getElementById('name2').innerText;
 
-  console.log(name1, '11111111111111');
-  console.log(name2, '11111111111111');
-
   if (name1 === name2) {
     axios
       .delete('/detail', {
