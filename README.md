@@ -1,73 +1,33 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<img width="1676" alt="스크린샷 2022-10-18 오후 10 05 09" src="https://user-images.githubusercontent.com/64051267/196437718-3e310649-5e94-4406-ab32-c28dfd9689b4.png">
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+<h4 style="border-top:2px solid gray; margin: 30px 0;">각종 운동 용병모집 정보를 한눈에 알아 볼 수 있고 모임을 쉽게 찾을 수 있는 사이트입니다.</h4>
+<h4 style="margin-top: 20px 0">배포주소: http://togethersports.shop</h4>
 
-## Description
+<div style="border-top:2px solid gray; margin: 30px 0;"></div>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<h2 style="border-bottom:2px solid gray; margin: 400px 0;">기술 스택</h2>
 
-## Installation
+<div style="margin-top: 20px 0">
+  <li>TypeScript</li>
+  <li>NodeJS</li>
+  <li>NestJS</li>
+  <li>TypeORM</li>
+  <li>Redis</li>
+  <li>Mysql</li>
+  <li>Docker</li>
+  <li>Git, Github</li>
+  <li>Kubernetes</li>
+  <li>GCP</li>
+</div>
 
-```bash
-$ npm install
-```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+<h2 style="border-bottom:2px solid gray; margin: 30px 0;">.env설정</h2>
+<div style="margin-top: 20px 0">
+  <li>GOOGLE_CLIENT_ID</li>
+  <li>GOOGLE_CLIENT_SECRET</li>
+  <li>NAVER_CLIENT_ID</li>
+  <li>NAVER_CLIENT_SECRET</li>
+  <li>KAKAO_CLIENT_ID</li>
+  <li>KEY</li>
+</div>
