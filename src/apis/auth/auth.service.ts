@@ -24,7 +24,6 @@ export class AuthService {
   }
 
   async getUserInfo(req, res) {
-    console.log(req.user.nickname);
     let user = await this.userRepository.findOne({
       where: {
         email: req.user.email,

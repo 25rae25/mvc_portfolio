@@ -11,7 +11,6 @@ export class JwtKaKaoStrategy extends PassportStrategy(Strategy, 'kakao') {
   }
 
   validate(_, __, profile) {
-    console.log(profile, '===============');
     return {
       email: profile._json.kakao_account.email,
       nickname: profile.displayName,

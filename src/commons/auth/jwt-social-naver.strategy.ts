@@ -12,7 +12,6 @@ export class JwtNaverStrategy extends PassportStrategy(Strategy, 'naver') {
   }
 
   validate(_, __, profile) {
-    console.log(profile, '==============');
     return {
       email: profile.emails[0].value,
       name: profile.displayName,
