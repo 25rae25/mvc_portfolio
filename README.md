@@ -3,6 +3,7 @@
 
 <h4 style="border-top:2px solid gray; margin: 30px 0;">각종 운동 용병모집 정보를 한곳에서 볼 수 있고 모임을 쉽게 찾을 수 있는 운동사이트입니다.</h4>
 <h4 style="margin-top: 20px 0">배포주소: http://niceyoungrae.shop</h4>
+<h4 style="margin-top: 20px 0">배포주소: http://togethersports.shop</h4>
 
 <div style="border-top:2px solid gray; margin: 30px 0;"></div>
 
