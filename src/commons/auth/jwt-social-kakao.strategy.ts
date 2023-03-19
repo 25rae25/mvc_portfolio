@@ -6,7 +6,7 @@ export class JwtKaKaoStrategy extends PassportStrategy(Strategy, 'kakao') {
   constructor() {
     super({
       clientID: process.env.KAKAO_CLIENT_ID,
-      callbackURL: 'https://niceyoungrae.shop/login/kakao',
+      callbackURL: 'https://sportsyoungrae/login/kakao',
     });
   }
 
