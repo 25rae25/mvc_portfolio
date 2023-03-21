@@ -21,7 +21,7 @@ import { AppService } from './app.service';
     UserModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '10.126.209.2', //sql ip번호 & DNS A 랑 맞춰  10.126.209.2  sports-database
+      host: '10.11.161.2', //sql ip번호 & DNS A 랑 맞춰  10.126.209.2  sports-database
       port: 3306,
       username: 'root',
       password: 'root', // root 12345678
