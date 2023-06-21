@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   sports-backend:
-    image: asia.gcr.io/toge-382108/sports-backend:3.1
+    image: asia.gcr.io/toge-382108/sports-backend:3.5
     build:
       context: .
       dockerfile: Dockerfile
